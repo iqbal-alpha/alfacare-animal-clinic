@@ -77,6 +77,13 @@
   - [x] Uji coba seluruh alur pengguna di localhost (Booking flow, Estimator, Filter Case Study, Language Switcher)
   - [x] Uji responsivitas tampilan di viewport Mobile (375px), Tablet (768px), dan Desktop (1280px+)
 
+- [x] **2.9 Refinement & Visual Elevation (design-taste-frontend Anti-Slop Guidelines)**
+  - [x] Eliminasi seluruh em-dashes (`—`) dan raw emojis sesuai kebijakan anti-slop, digantikan komponen Lucide icons (`Cat`, `Dog`, `Rabbit`, `PawPrint`, `Stethoscope`, `Syringe`, `Scissors`, `Check`, dll.)
+  - [x] Restrukturisasi Hero: layout asimetris 7:5, subtext $\le 20$ kata, stack teks terfokus $\le 4$ elemen, serta Trust Bar akreditasi terpisah langsung di bawah hero
+  - [x] Elevasi Kalkulator Tarif: tab spesies taktil, pemilih bobot responsif, kartu ringkasan Linear-grade dengan angka tabular dan kontras tinggi
+  - [x] Konsistensi Page Theme Lock: command center triase darurat terpadu tanpa pembalikan tema yang mengganggu kontinuitas visual
+  - [x] Verifikasi build produksi bersih: `npm run build` sukses 100% tanpa error TypeScript/ESLint
+
 ---
 
 ### TAHAP 3: SETUP DATABASE SUPABASE & INTEGRASI BACKEND
