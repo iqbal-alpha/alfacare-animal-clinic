@@ -137,29 +137,37 @@ ALTER TABLE public.case_studies ENABLE ROW LEVEL SECURITY;
 
 -- 8.A Policies: Anon User / Public Front-end Access
 -- Public lead funnel is allowed to insert new bookings, owners, and pets
+DROP POLICY IF EXISTS "Public anon can insert owners" ON public.owners;
 CREATE POLICY "Public anon can insert owners" ON public.owners
   FOR INSERT TO anon WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Public anon can insert pets" ON public.pets;
 CREATE POLICY "Public anon can insert pets" ON public.pets
   FOR INSERT TO anon WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Public anon can insert bookings" ON public.bookings;
 CREATE POLICY "Public anon can insert bookings" ON public.bookings
   FOR INSERT TO anon WITH CHECK (true);
 
 -- Public can read published case studies for social proof
+DROP POLICY IF EXISTS "Public can view published case studies" ON public.case_studies;
 CREATE POLICY "Public can view published case studies" ON public.case_studies
   FOR SELECT TO anon USING (is_published = TRUE);
 
 -- 8.B Policies: Service Role Full Access (Backend API Routes & Admin)
+DROP POLICY IF EXISTS "Service role full access on owners" ON public.owners;
 CREATE POLICY "Service role full access on owners" ON public.owners
   FOR ALL TO service_role USING (true) WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Service role full access on pets" ON public.pets;
 CREATE POLICY "Service role full access on pets" ON public.pets
   FOR ALL TO service_role USING (true) WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Service role full access on bookings" ON public.bookings;
 CREATE POLICY "Service role full access on bookings" ON public.bookings
   FOR ALL TO service_role USING (true) WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Service role full access on case_studies" ON public.case_studies;
 CREATE POLICY "Service role full access on case_studies" ON public.case_studies
   FOR ALL TO service_role USING (true) WITH CHECK (true);
 
@@ -175,8 +183,10 @@ VALUES (
 ON CONFLICT (id) DO NOTHING;
 
 -- Storage RLS: Public can view images in 'case-studies' bucket
+DROP POLICY IF EXISTS "Public can view case study images" ON storage.objects;
 CREATE POLICY "Public can view case study images" ON storage.objects
   FOR SELECT TO anon USING (bucket_id = 'case-studies');
 
+DROP POLICY IF EXISTS "Service role can upload case study images" ON storage.objects;
 CREATE POLICY "Service role can upload case study images" ON storage.objects
   FOR ALL TO service_role USING (bucket_id = 'case-studies') WITH CHECK (bucket_id = 'case-studies');
