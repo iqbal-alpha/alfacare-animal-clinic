@@ -19,7 +19,7 @@ export const FloatingEmergencyBar: React.FC<FloatingEmergencyBarProps> = ({ curr
         className="flex-1 bg-urgent-600 active:bg-urgent-700 text-white font-bold text-xs py-3 px-3 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-colors"
       >
         <PhoneCall className="w-4 h-4 animate-pulse" />
-        <span>{isId ? '🚨 IGD Darurat' : '🚨 24/7 ER Call'}</span>
+        <span>{isId ? 'IGD Darurat 24 Jam' : '24/7 ER Hotline'}</span>
       </a>
 
       {/* 1-Tap Booking Scroll */}
@@ -28,7 +28,7 @@ export const FloatingEmergencyBar: React.FC<FloatingEmergencyBarProps> = ({ curr
         className="flex-1 bg-brand-800 active:bg-brand-900 text-white font-bold text-xs py-3 px-3 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-colors"
       >
         <Calendar className="w-4 h-4 text-emerald-400" />
-        <span>{isId ? '📅 Reservasi' : '📅 Book Visit'}</span>
+        <span>{isId ? 'Reservasi Jadwal' : 'Book Appointment'}</span>
       </a>
     </div>
   );

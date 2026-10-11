@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             title="Switch Language"
           >
             <Globe className="w-3.5 h-3.5 text-brand-600" />
-            <span>{currentLocale === 'id' ? 'ID (🇮🇩)' : 'EN (🇬🇧)'}</span>
+            <span>{currentLocale === 'id' ? 'ID' : 'EN'}</span>
           </button>
 
           {/* Book Appointment CTA Button */}

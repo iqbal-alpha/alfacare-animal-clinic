@@ -4,7 +4,20 @@ import React, { useState, useMemo } from 'react';
 import { Locale, Species, WeightClass, ServiceItem } from '@/types';
 import { CLINIC_SERVICES } from '@/data/mockData';
 import { DICTIONARY } from '@/data/translations';
-import { Calculator, Check, ArrowRight, AlertTriangle, Sparkles, Plus, Clock, HelpCircle } from 'lucide-react';
+import {
+  Calculator,
+  Check,
+  ArrowRight,
+  AlertTriangle,
+  Sparkles,
+  Plus,
+  Clock,
+  HelpCircle,
+  Cat,
+  Dog,
+  Rabbit,
+  PawPrint,
+} from 'lucide-react';
 
 interface PricingEstimatorProps {
   currentLocale: Locale;
@@ -180,24 +193,34 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { id: 'CAT' as Species, label: 'Kucing (Cat)', icon: '🐱' },
-                  { id: 'DOG' as Species, label: 'Anjing (Dog)', icon: '🐶' },
-                  { id: 'RABBIT' as Species, label: 'Eksotik (Exotic)', icon: '🐰' },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => handleSpeciesChange(item.id)}
-                    className={`flex flex-col items-center justify-center p-3.5 rounded-2xl border-2 transition-all text-center ${
-                      selectedSpecies === item.id
-                        ? 'border-emerald-600 bg-emerald-50/60 text-brand-900 font-bold shadow-sm'
-                        : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
-                    }`}
-                  >
-                    <span className="text-2xl mb-1">{item.icon}</span>
-                    <span className="text-xs font-semibold">{item.label}</span>
-                  </button>
-                ))}
+                  { id: 'CAT' as Species, label: 'Kucing (Cat)', icon: Cat },
+                  { id: 'DOG' as Species, label: 'Anjing (Dog)', icon: Dog },
+                  { id: 'RABBIT' as Species, label: 'Eksotik (Exotic)', icon: Rabbit },
+                ].map((item) => {
+                  const IconComp = item.icon;
+                  const isSelected = selectedSpecies === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleSpeciesChange(item.id)}
+                      className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all text-center active:scale-[0.98] cursor-pointer ${
+                        isSelected
+                          ? 'border-emerald-600 bg-emerald-50 text-brand-900 font-bold shadow-sm'
+                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                      }`}
+                    >
+                      <div
+                        className={`w-10 h-10 rounded-xl mb-2 flex items-center justify-center transition-colors ${
+                          isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-600'
+                        }`}
+                      >
+                        <IconComp className="w-5 h-5" />
+                      </div>
+                      <span className="text-xs font-semibold">{item.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -437,11 +460,11 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               </div>
 
               {/* Total Price Display */}
-              <div className="bg-brand-950/70 p-5 rounded-2xl border border-brand-700/60 text-center">
-                <span className="text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">
+              <div className="bg-brand-950/80 p-5 rounded-2xl border border-brand-800 text-center">
+                <span className="text-xs text-slate-400 font-semibold block mb-1">
                   {t.totalEstimate}
                 </span>
-                <div className="text-3xl sm:text-4xl font-heading font-black text-emerald-400 tracking-tight">
+                <div className="text-3xl sm:text-4xl font-heading font-black text-emerald-400 tracking-tight tabular-nums">
                   {formatCurrency(calculation.total)}
                 </div>
                 <span className="text-[10px] text-slate-400 mt-1 block">

@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLocale }) => {
 
           {/* Col 2: Navigation (3 Cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-heading font-bold text-white text-sm uppercase tracking-wider">
+            <h4 className="font-heading font-bold text-white text-sm">
               {t.quickLinks}
             </h4>
             <ul className="space-y-2">
@@ -82,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLocale }) => {
 
           {/* Col 3: Services (4 Cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-heading font-bold text-white text-sm uppercase tracking-wider">
+            <h4 className="font-heading font-bold text-white text-sm">
               {t.medicalServices}
             </h4>
             <div className="grid grid-cols-2 gap-2 text-[11px]">

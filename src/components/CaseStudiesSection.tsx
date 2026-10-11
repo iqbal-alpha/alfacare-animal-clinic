@@ -5,7 +5,7 @@ import { Locale, CaseStudyItem } from '@/types';
 import { CASE_STUDIES } from '@/data/mockData';
 import { DICTIONARY } from '@/data/translations';
 import { CaseStudyDetailModal } from './CaseStudyDetailModal';
-import { Sparkles, Star, ChevronRight, Award } from 'lucide-react';
+import { Sparkles, Star, ChevronRight, Award, Check } from 'lucide-react';
 
 interface CaseStudiesSectionProps {
   currentLocale: Locale;
@@ -97,8 +97,9 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ currentL
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                   
                   {/* Recovery Pill */}
-                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-bold text-emerald-800 shadow-sm">
-                    ✓ {recovery}
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-lg text-[10px] font-bold text-emerald-800 shadow-sm flex items-center gap-1">
+                    <Check className="w-3 h-3 text-emerald-600 stroke-[3]" />
+                    <span>{recovery}</span>
                   </div>
 
                   {/* Species Tag */}

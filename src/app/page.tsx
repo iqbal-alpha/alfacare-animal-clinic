@@ -12,8 +12,16 @@ import { ClinicLocationSection } from '@/components/ClinicLocationSection';
 import { FloatingEmergencyBar } from '@/components/FloatingEmergencyBar';
 import { Footer } from '@/components/Footer';
 import { CLINIC_SERVICES } from '@/data/mockData';
-import { DICTIONARY } from '@/data/translations';
-import { Sparkles, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react';
+import {
+  Sparkles,
+  Stethoscope,
+  CheckCircle2,
+  ArrowRight,
+  Syringe,
+  Scissors,
+  Microscope,
+  HeartPulse,
+} from 'lucide-react';
 
 export default function Home() {
   const [currentLocale, setCurrentLocale] = useState<Locale>('id');
@@ -58,84 +66,119 @@ export default function Home() {
       {/* 2. High-Converting Hero Section */}
       <HeroSection currentLocale={currentLocale} />
 
-      {/* 3. Core Clinical Services Showcase Bar */}
-      <section id="services" className="py-14 bg-white border-b border-slate-200">
+      {/* 3. Core Clinical Services Showcase */}
+      <section id="services" className="py-16 lg:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-2">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
               <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
               <span>{isId ? 'Standar Medis Terakreditasi' : 'Accredited Medical Standards'}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-heading font-black text-brand-900 tracking-tight">
-              {isId ? 'Layanan Unggulan AlfaCare Animal Clinic' : 'Core Clinical Services at AlfaCare'}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-brand-900 tracking-tight">
+              {isId ? 'Layanan Klinis Unggulan AlfaCare' : 'Core Clinical Services at AlfaCare'}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-2">
+            <p className="text-sm text-slate-600 mt-2.5 max-w-lg mx-auto">
               {isId
-                ? 'Didukung peralatan modern, ruang bedah steril standar rumah sakit manusia, dan dokter berpengalaman.'
-                : 'Backed by modern technology, ISO human-grade sterile surgical theaters, and experienced veterinary surgeons.'}
+                ? 'Didukung peralatan modern, ruang bedah steril standar rumah sakit manusia, dan tim dokter berizin resmi.'
+                : 'Backed by modern medical equipment, ISO human-grade sterile surgical theaters, and licensed veterinary surgeons.'}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: '🩺',
+                icon: Stethoscope,
                 titleId: 'Pemeriksaan Umum & Penyakit Dalam',
                 titleEn: 'Internal Medicine & Wellness',
                 descId: 'Pemeriksaan fisik menyeluruh, manajemen penyakit kronis ginjal/hati, dan penanganan demam/infeksi.',
                 descEn: 'Thorough physical diagnosis, chronic disease management, and infectious fever therapeutics.',
+                featured: false,
               },
               {
-                icon: '💉',
+                icon: Syringe,
                 titleId: 'Vaksinasi Lengkap & Imunisasi',
                 titleEn: 'Comprehensive Vaccination',
-                descId: 'Vaksin F3/F4 Kucing, DHPPiL Anjing, dan Rabies resmi dengan buku rekam medis digital.',
+                descId: 'Vaksin F3/F4 Kucing, DHPPiL Anjing, dan Rabies resmi dengan sertifikat rekam medis digital.',
                 descEn: 'F3/F4 Feline, DHPPiL Canine, and certified Rabies immunizations with digital logs.',
+                featured: false,
               },
               {
-                icon: '✂️',
+                icon: Scissors,
                 titleId: 'Bedah Sterilisasi & Jaringan Lunak',
                 titleEn: 'Spay/Neuter & Soft Tissue Surgery',
-                descId: 'Kastrasi, ovariohisterektomi, pengangkatan tumor/batu kandung kemih dengan anestesi inhalasi.',
+                descId: 'Kastrasi, ovariohisterektomi, pengangkatan tumor/batu kandung kemih dengan anestesi inhalasi isoflurane aman.',
                 descEn: 'Neuter, spay, cystotomy, and mass removals under monitored gas isoflurane anesthesia.',
+                featured: true,
+                badgeId: 'Ruang Bedah ISO',
+                badgeEn: 'ISO Sterile Theater',
               },
               {
-                icon: '🦷',
+                icon: Sparkles,
                 titleId: 'Dental Ultrasonic Scaling & Polishing',
                 titleEn: 'Ultrasonic Dental Scaling',
-                descId: 'Pembersihan karang gigi mendalam, pengobatan radang gusi, dan ekstraksi gigi goyang.',
+                descId: 'Pembersihan karang gigi subgingival mendalam, pengobatan radang gusi (gingivitis), dan ekstraksi gigi berlubang.',
                 descEn: 'Deep subgingival plaque removal, gingivitis therapy, and diseased tooth extractions.',
+                featured: false,
               },
               {
-                icon: '🏥',
-                titleId: 'Rawat Inap Isolasi & ICU Oksigen',
-                titleEn: 'Inpatient Ward & Oxygen ICU',
-                descId: 'Ruang rawat steril dengan ruang isolasi berfilter terpisah khusus penyakit menular virus.',
+                icon: HeartPulse,
+                titleId: 'Rawat Inap Isolasi & ICU Oksigen 24 Jam',
+                titleEn: 'Inpatient Ward & 24/7 Oxygen ICU',
+                descId: 'Ruang rawat steril dengan ruang isolasi berfilter terpisah khusus penyakit virus dan inkubator oksigen kontinyu.',
                 descEn: 'Negative-pressure isolation chambers for viral recovery and continuous oxygen incubators.',
+                featured: true,
+                badgeId: 'Siaga 24 Jam',
+                badgeEn: '24/7 Standby',
               },
               {
-                icon: '🔬',
+                icon: Microscope,
                 titleId: 'Laboratorium & USG Doppler On-Site',
                 titleEn: 'On-Site Diagnostics & Ultrasound',
-                descId: 'Hasil tes darah CBC 20 menit, profil kimia darah, rontgen digital, dan USG abdomen organ dalam.',
+                descId: 'Hasil tes darah CBC lengkap 20 menit, tes biokimia darah, rontgen digital, dan USG abdomen organ dalam.',
                 descEn: 'Rapid 20-minute CBC hematology, chemistry panels, digital X-Ray, and color Doppler scans.',
+                featured: false,
               },
-            ].map((srv, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-50/80 hover:bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-white group-hover:bg-emerald-50 border border-slate-200 text-2xl flex items-center justify-center mb-3 shadow-sm transition">
-                  {srv.icon}
+            ].map((srv, idx) => {
+              const IconComp = srv.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
+                    srv.featured
+                      ? 'bg-gradient-to-b from-white to-emerald-50/40 border-emerald-200/90 shadow-sm hover:shadow-lg hover:border-emerald-300'
+                      : 'bg-white hover:bg-slate-50/60 border-slate-200/80 shadow-sm hover:shadow-md'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                        <IconComp className="w-6 h-6" />
+                      </div>
+                      {srv.featured && (
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">
+                          {isId ? srv.badgeId : srv.badgeEn}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-brand-900 group-hover:text-emerald-700 transition">
+                      {isId ? srv.titleId : srv.titleEn}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                      {isId ? srv.descId : srv.descEn}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+                    <a
+                      href="#booking"
+                      className="text-xs font-bold text-emerald-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                    >
+                      <span>{isId ? 'Konsultasi Layanan' : 'Consult Service'}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </div>
-                <h3 className="font-heading font-bold text-base text-brand-900 group-hover:text-emerald-700 transition">
-                  {isId ? srv.titleId : srv.titleEn}
-                </h3>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  {isId ? srv.descId : srv.descEn}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

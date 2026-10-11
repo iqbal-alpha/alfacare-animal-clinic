@@ -119,7 +119,7 @@ export const CaseStudyDetailModal: React.FC<CaseStudyDetailModalProps> = ({
             <p className="text-xs text-slate-700 italic leading-relaxed font-medium">
               {review}
             </p>
-            <p className="text-[11px] font-bold text-slate-900 text-right">— {caseStudy.ownerName}</p>
+            <p className="text-[11px] font-bold text-slate-900 text-right">- {caseStudy.ownerName}</p>
           </div>
 
           {/* Action CTA */}

@@ -31,7 +31,7 @@ export const BookingSuccessModal: React.FC<BookingSuccessModalProps> = ({
     if (isId) {
       message = `Halo Admin AlfaCare Animal Clinic Jakarta, saya ingin melakukan reservasi kunjungan:
 
-📋 *DETAIL PASIEN & HEWAN*
+[DETAIL PASIEN & HEWAN]
 • Kode Tiket: ${bookingData.bookingCode}
 • Nama Hewan: ${bookingData.pet.name}
 • Spesies / Ras: ${bookingData.pet.species} (${bookingData.pet.breed || '-'})
@@ -39,7 +39,7 @@ export const BookingSuccessModal: React.FC<BookingSuccessModalProps> = ({
 • Usia: ${bookingData.pet.ageYears}
 • Gejala / Catatan: ${bookingData.symptomsNotes || 'Pemeriksaan rutin / checkup'}
 
-🩺 *LAYANAN & JADWAL*
+[LAYANAN & JADWAL]
 • Layanan: ${bookingData.serviceCategory}
 • Tingkat Urgensi: ${bookingData.urgencyLevel}
 • Rencana Tanggal: ${bookingData.appointmentDate}
@@ -47,7 +47,7 @@ export const BookingSuccessModal: React.FC<BookingSuccessModalProps> = ({
 • Dokter Preferensi: ${bookingData.preferredDoctor}
 ${bookingData.estimatedCostIdr ? `• Estimasi Biaya Web: Rp ${bookingData.estimatedCostIdr.toLocaleString('id-ID')}` : ''}
 
-👤 *KONTAK PEMILIK*
+[KONTAK PEMILIK]
 • Nama Pemilik: ${bookingData.owner.fullName}
 • No. WhatsApp: ${bookingData.owner.phoneWhatsApp}
 • Email: ${bookingData.owner.email}
@@ -56,7 +56,7 @@ Mohon konfirmasi ketersediaan slot ini. Terima kasih!`;
     } else {
       message = `Hello AlfaCare Animal Clinic Jakarta Admin, I would like to confirm an appointment booking:
 
-📋 *PATIENT & PET DETAILS*
+[PATIENT & PET DETAILS]
 • Booking Code: ${bookingData.bookingCode}
 • Pet Name: ${bookingData.pet.name}
 • Species / Breed: ${bookingData.pet.species} (${bookingData.pet.breed || '-'})
@@ -64,14 +64,14 @@ Mohon konfirmasi ketersediaan slot ini. Terima kasih!`;
 • Age: ${bookingData.pet.ageYears}
 • Symptoms / Notes: ${bookingData.symptomsNotes || 'Routine wellness visit'}
 
-🩺 *SERVICE & SCHEDULE*
+[SERVICE & SCHEDULE]
 • Service: ${bookingData.serviceCategory}
 • Urgency Level: ${bookingData.urgencyLevel}
 • Scheduled Date: ${bookingData.appointmentDate}
 • Time Slot: ${bookingData.timeSlot}
 • Preferred Vet: ${bookingData.preferredDoctor}
 
-👤 *OWNER INFORMATION*
+[OWNER INFORMATION]
 • Owner Name: ${bookingData.owner.fullName}
 • WhatsApp: ${bookingData.owner.phoneWhatsApp}
 • Email: ${bookingData.owner.email}

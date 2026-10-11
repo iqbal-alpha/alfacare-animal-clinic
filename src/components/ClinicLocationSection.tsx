@@ -37,7 +37,7 @@ export const ClinicLocationSection: React.FC<ClinicLocationSectionProps> = ({ cu
                   <MapPin className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.addressTitle}</h4>
+                  <h4 className="text-xs font-bold text-slate-500">{t.addressTitle}</h4>
                   <p className="text-sm font-bold text-slate-900 mt-0.5">{t.addressValue}</p>
                 </div>
               </div>
@@ -47,7 +47,7 @@ export const ClinicLocationSection: React.FC<ClinicLocationSectionProps> = ({ cu
                   <Clock className="w-5 h-5 text-brand-700" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.hoursTitle}</h4>
+                  <h4 className="text-xs font-bold text-slate-500">{t.hoursTitle}</h4>
                   <p className="text-sm font-bold text-slate-900 mt-0.5">{t.hoursValue}</p>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export const ClinicLocationSection: React.FC<ClinicLocationSectionProps> = ({ cu
                   <Phone className="w-5 h-5 text-urgent-700" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">{t.phoneTitle}</h4>
+                  <h4 className="text-xs font-bold text-slate-500">{t.phoneTitle}</h4>
                   <p className="text-sm font-bold text-slate-900 mt-0.5">{t.phoneValue}</p>
                 </div>
               </div>

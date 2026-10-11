@@ -16,6 +16,10 @@ import {
   CheckCircle2,
   AlertCircle,
   FileText,
+  Cat,
+  Dog,
+  Rabbit,
+  PawPrint,
 } from 'lucide-react';
 
 interface MultiStepBookingProps {
@@ -269,25 +273,46 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
                   </div>
 
                   {/* Species Selection */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-800 mb-1">
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-bold text-slate-800 mb-2">
                       {t.speciesLabel}
                     </label>
-                    <select
-                      value={petSpecies}
-                      onChange={(e) => {
-                        const val = e.target.value as Species;
-                        setPetSpecies(val);
-                        if (val === 'CAT') setPetWeight('FELINE_STANDARD');
-                        if (val === 'DOG') setPetWeight('CANINE_MEDIUM');
-                      }}
-                      className="w-full text-sm px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none bg-white transition"
-                    >
-                      <option value="CAT">Kucing / Cat 🐱</option>
-                      <option value="DOG">Anjing / Dog 🐶</option>
-                      <option value="RABBIT">Kelinci / Rabbit 🐰</option>
-                      <option value="BIRD_EXOTIC">Burung / Hewan Eksotik 🦜</option>
-                    </select>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                      {[
+                        { id: 'CAT' as Species, label: 'Kucing (Cat)', icon: Cat },
+                        { id: 'DOG' as Species, label: 'Anjing (Dog)', icon: Dog },
+                        { id: 'RABBIT' as Species, label: 'Kelinci (Rabbit)', icon: Rabbit },
+                        { id: 'BIRD_EXOTIC' as Species, label: 'Eksotik (Exotic)', icon: PawPrint },
+                      ].map((s) => {
+                        const IconComp = s.icon;
+                        const isSelected = petSpecies === s.id;
+                        return (
+                          <button
+                            key={s.id}
+                            type="button"
+                            onClick={() => {
+                              setPetSpecies(s.id);
+                              if (s.id === 'CAT') setPetWeight('FELINE_STANDARD');
+                              if (s.id === 'DOG') setPetWeight('CANINE_MEDIUM');
+                            }}
+                            className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs font-semibold transition-all cursor-pointer active:scale-[0.98] ${
+                              isSelected
+                                ? 'border-emerald-600 bg-emerald-50 text-brand-900 shadow-sm font-bold'
+                                : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                            }`}
+                          >
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                                isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-500'
+                              }`}
+                            >
+                              <IconComp className="w-4 h-4" />
+                            </div>
+                            <span className="truncate">{s.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
 
                   {/* Breed */}

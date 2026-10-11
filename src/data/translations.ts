@@ -24,7 +24,7 @@ export const DICTIONARY = {
         icu: 'ICU Inkubator Oksigen Kontinyu',
       },
       emergencyBanner: {
-        tag: '🚨 Butuh Penanganan Darurat Segera?',
+        tag: 'Butuh Penanganan Darurat Segera?',
         desc: 'Jangan tunggu! Triase darurat AlfaCare siaga menangani trauma, pendarahan, dan keracunan.',
         callNow: 'Hubungi Dokter Darurat',
         maps: 'Petunjuk Arah Darurat',
@@ -177,7 +177,7 @@ export const DICTIONARY = {
         icu: 'Continuous Oxygen Incubator ICU',
       },
       emergencyBanner: {
-        tag: '🚨 Need Immediate Emergency Care?',
+        tag: 'Need Immediate Emergency Care?',
         desc: 'Do not wait! AlfaCare emergency triage is on standby for trauma, severe hemorrhage, and poisoning.',
         callNow: 'Call Emergency Vet',
         maps: 'Emergency Directions',
