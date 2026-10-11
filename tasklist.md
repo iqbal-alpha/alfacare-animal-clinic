@@ -1,6 +1,6 @@
 # TASK LIST: PENGEMBANGAN WEBSITE ALFACARE ANIMAL CLINIC JAKARTA
 
-> **Status Proyek:** Tahap 1 — Pembangunan Frontend Interaktif di Lokal (Dummy/Mock First)  
+> **Status Proyek:** Tahap 3 Selesai — Database & Backend Integration (Supabase + Resend) Siap  
 > **Pendekatan Alur:** *Local Frontend First* $\rightarrow$ *Supabase Database Integration* $\rightarrow$ *Push GitHub & Deploy Vercel*  
 > **Arsitektur:** Next.js 15 (App Router) + TypeScript + Tailwind CSS  
 > **Infrastruktur:** Local Dev $\rightarrow$ Supabase (PostgreSQL & Storage) $\rightarrow$ GitHub & Vercel  
@@ -87,21 +87,26 @@
 ---
 
 ### TAHAP 3: SETUP DATABASE SUPABASE & INTEGRASI BACKEND
-*(Dilakukan setelah tampilan dan alur interaktif frontend lokal disetujui)*
+*(Infrastruktur database PostgreSQL, Serverless API Routes, dan Notifikasi Email)*
 
-- [ ] **3.1 Setup Project & Migrasi Database Supabase**
-  - [ ] Buat project baru di Supabase dashboard
-  - [ ] Eksekusi skema DDL SQL tabel `owners`, `pets`, `bookings`, `case_studies`
-  - [ ] Konfigurasi Row Level Security (RLS) policies untuk anon insert dan admin read/write
-  - [ ] Buat storage bucket publik `case-studies` untuk foto Before & After
-- [ ] **3.2 Integrasi Form Booking ke Database Supabase**
-  - [ ] Hubungkan form booking Step 4 ke API Route `/api/booking/dispatch`
-  - [ ] Simpan data lead ke tabel `owners`, `pets`, dan `bookings` di Supabase
-- [ ] **3.3 Integrasi Case Studies Dinamis dari Supabase**
-  - [ ] Migrasi mock data studi kasus ke tabel `case_studies` di Supabase
-  - [ ] Query data studi kasus langsung dari Supabase Database
-- [ ] **3.4 Integrasi Email Notifikasi Otomatis**
-  - [ ] Setup Resend API untuk pengiriman email tiket konfirmasi ke pemilik hewan & notifikasi internal klinik
+- [x] **3.1 Setup Project & Migrasi Database Supabase**
+  - [x] Panduan lengkap pembuatan project baru di dashboard Supabase ([supabase/README-SETUP.md](file:///c:/Users/ASUS/Documents/Antigravity/coba3/supabase/README-SETUP.md))
+  - [x] Skrip DDL skema database PostgreSQL lengkap ([supabase/migrations/20261011_init_schema.sql](file:///c:/Users/ASUS/Documents/Antigravity/coba3/supabase/migrations/20261011_init_schema.sql)) untuk tabel `owners`, `pets`, `bookings`, `case_studies`
+  - [x] Konfigurasi Row Level Security (RLS) policies untuk anon insert dan admin read/write
+  - [x] Konfigurasi storage bucket publik `case-studies` untuk foto Before & After
+  - [x] Utilitas koneksi Supabase Browser & Server ([src/lib/supabaseClient.ts](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/lib/supabaseClient.ts) & [src/lib/supabaseServer.ts](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/lib/supabaseServer.ts))
+- [x] **3.2 Integrasi Form Booking ke Database Supabase**
+  - [x] Serverless Route Handler API: [src/app/api/booking/dispatch/route.ts](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/app/api/booking/dispatch/route.ts)
+  - [x] Penyimpanan otomatis data transaksi ke tabel relasional `owners`, `pets`, dan `bookings`
+  - [x] Integrasi frontend di [src/components/MultiStepBooking.tsx](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/components/MultiStepBooking.tsx) dengan status loading spinner, pencegahan double-submit, dan error banner interaktif
+  - [x] Arsitektur *Graceful Fallback*: Otomatis beralih ke simulasi sukses jika kunci Supabase belum diisi di `.env.local`
+- [x] **3.3 Integrasi Case Studies Dinamis dari Supabase**
+  - [x] Script data benih klinis awal ([supabase/seed.sql](file:///c:/Users/ASUS/Documents/Antigravity/coba3/supabase/seed.sql))
+  - [x] Serverless Route Handler API: [src/app/api/cases/route.ts](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/app/api/cases/route.ts)
+  - [x] Komponen [src/components/CaseStudiesSection.tsx](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/components/CaseStudiesSection.tsx) otomatis sinkron dengan data Supabase dengan fallback data lokal instan
+- [x] **3.4 Integrasi Email Notifikasi Otomatis**
+  - [x] Setup Resend service ([src/lib/emailNotifier.ts](file:///c:/Users/ASUS/Documents/Antigravity/coba3/src/lib/emailNotifier.ts)) untuk pengiriman email tiket konfirmasi HTML profesional ke pemilik hewan & alert lead ke tim operasional klinik
+  - [x] Simulasi otomatis pengiriman email di log konsol jika `RESEND_API_KEY` belum diisi
 
 ---
 

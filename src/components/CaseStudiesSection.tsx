@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Locale, CaseStudyItem } from '@/types';
 import { CASE_STUDIES } from '@/data/mockData';
 import { DICTIONARY } from '@/data/translations';
@@ -16,14 +16,36 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ currentL
 
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [selectedCase, setSelectedCase] = useState<CaseStudyItem | null>(null);
+  const [cases, setCases] = useState<CaseStudyItem[]>(CASE_STUDIES);
+
+  // Fetch dynamic case studies from Supabase via API route
+  useEffect(() => {
+    let isMounted = true;
+    async function loadCases() {
+      try {
+        const res = await fetch('/api/cases');
+        if (!res.ok) return;
+        const json = await res.json();
+        if (isMounted && json.data && Array.isArray(json.data) && json.data.length > 0) {
+          setCases(json.data);
+        }
+      } catch (err) {
+        console.warn('Failed to load dynamic case studies from API, keeping local fallback:', err);
+      }
+    }
+    loadCases();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Filter items
   const filteredCases = useMemo(() => {
-    if (activeFilter === 'all') return CASE_STUDIES;
-    if (activeFilter === 'cats') return CASE_STUDIES.filter((c) => c.species === 'CAT');
-    if (activeFilter === 'dogs') return CASE_STUDIES.filter((c) => c.species === 'DOG');
-    return CASE_STUDIES.filter((c) => c.category === activeFilter);
-  }, [activeFilter]);
+    if (activeFilter === 'all') return cases;
+    if (activeFilter === 'cats') return cases.filter((c) => c.species === 'CAT');
+    if (activeFilter === 'dogs') return cases.filter((c) => c.species === 'DOG');
+    return cases.filter((c) => c.category === activeFilter);
+  }, [activeFilter, cases]);
 
   const handleConsultSimilar = () => {
     const bookingEl = document.getElementById('booking');

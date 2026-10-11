@@ -20,6 +20,7 @@ import {
   Dog,
   Rabbit,
   PawPrint,
+  Loader2,
 } from 'lucide-react';
 
 interface MultiStepBookingProps {
@@ -39,6 +40,8 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
   const [step, setStep] = useState<number>(1);
   const [successModalOpen, setSuccessModalOpen] = useState<boolean>(false);
   const [completedBooking, setCompletedBooking] = useState<AppointmentBooking | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Form Field State
   const [petName, setPetName] = useState<string>('');
@@ -138,9 +141,12 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
     setStep((prev) => Math.max(prev - 1, 1));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateStep(4)) return;
+
+    setSubmitError(null);
+    setIsSubmitting(true);
 
     // Generate unique booking code: ALFA-YYYYMMDD-RANDOM
     const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
@@ -175,9 +181,48 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
       createdAt: new Date().toISOString(),
     };
 
-    // Save in state & open success modal
-    setCompletedBooking(booking);
-    setSuccessModalOpen(true);
+    try {
+      const response = await fetch('/api/booking/dispatch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(booking),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message ||
+            (currentLocale === 'id'
+              ? 'Gagal memproses reservasi ke database. Silakan coba kembali.'
+              : 'Failed to process booking. Please try again.')
+        );
+      }
+
+      // If backend generated or saved code
+      if (result.bookingCode) {
+        booking.bookingCode = result.bookingCode;
+      }
+      if (result.id) {
+        booking.id = result.id;
+      }
+
+      // Save in state & open success modal
+      setCompletedBooking(booking);
+      setSuccessModalOpen(true);
+    } catch (err: unknown) {
+      const errorMsg =
+        err instanceof Error
+          ? err.message
+          : currentLocale === 'id'
+          ? 'Terjadi kendala saat menyimpan reservasi. Silakan periksa koneksi Anda.'
+          : 'An error occurred while saving the booking. Please check your connection.';
+      setSubmitError(errorMsg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -625,13 +670,25 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
               </div>
             )}
 
+            {/* Error Feedback Banner */}
+            {submitError && (
+              <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-3 animate-fade-in">
+                <AlertCircle className="w-5 h-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-bold">{currentLocale === 'id' ? 'Kendala Pengiriman' : 'Submission Issue'}</p>
+                  <p className="mt-0.5">{submitError}</p>
+                </div>
+              </div>
+            )}
+
             {/* Navigation Buttons */}
             <div className="flex items-center justify-between pt-6 border-t border-slate-100">
               {step > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition disabled:opacity-50"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>{t.btnBack}</span>
@@ -652,10 +709,20 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
               ) : (
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5 disabled:opacity-75 disabled:cursor-not-allowed"
                 >
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>{t.btnSubmit}</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>{currentLocale === 'id' ? 'Menyimpan ke Sistem...' : 'Saving Booking...'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle2 className="w-5 h-5" />
+                      <span>{t.btnSubmit}</span>
+                    </>
+                  )}
                 </button>
               )}
             </div>
