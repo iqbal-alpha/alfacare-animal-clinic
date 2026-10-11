@@ -86,12 +86,12 @@ export const ClinicLocationSection: React.FC<ClinicLocationSectionProps> = ({ cu
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
 
-              <div className="absolute bottom-5 left-5 right-5 text-white p-4 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20">
+              <div className="absolute bottom-5 left-5 right-5 text-white p-4 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-white/20 shadow-lg">
                 <div className="flex items-center gap-2 text-xs font-bold text-emerald-400 mb-1">
-                  <Car className="w-4 h-4" />
+                  <Car className="w-4 h-4 shrink-0 text-emerald-400" />
                   <span>Area Parkir Luas & Drop-off Hewan Ramah Pasien</span>
                 </div>
-                <p className="text-xs text-slate-200">
+                <p className="text-xs text-slate-100 font-medium leading-relaxed">
                   Dilengkapi ruang tunggu terpisah untuk anjing dan kucing demi meminimalkan stres pasien.
                 </p>
               </div>

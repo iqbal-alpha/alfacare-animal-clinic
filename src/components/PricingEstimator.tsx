@@ -460,7 +460,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               </div>
 
               {/* Total Price Display */}
-              <div className="bg-brand-950/80 p-5 rounded-2xl border border-brand-800 text-center">
+              <div className="bg-[#060F1E] p-5 rounded-2xl border border-slate-700/80 text-center">
                 <span className="text-xs text-slate-400 font-semibold block mb-1">
                   {t.totalEstimate}
                 </span>

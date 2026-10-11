@@ -61,12 +61,12 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
     <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Authoritative Emergency Command Card Container */}
-        <div className="bg-brand-950 text-white rounded-3xl p-7 sm:p-10 border border-brand-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#071220] text-white rounded-3xl p-7 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
           {/* Subtle emergency ambient glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-urgent-600/10 rounded-full blur-3xl pointer-events-none -z-0" />
 
           {/* Header Row */}
-          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-brand-800/80">
+          <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-slate-800">
             <div>
               <div className="inline-flex items-center gap-2 bg-urgent-500/20 text-urgent-300 border border-urgent-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
                 <ShieldAlert className="w-4 h-4 text-urgent-400" />
@@ -96,7 +96,7 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
             {triageTips.map((tip, idx) => (
               <div
                 key={idx}
-                className="bg-brand-900/80 rounded-2xl p-5 border border-brand-800 hover:border-brand-700 transition space-y-3"
+                className="bg-[#0D1D35] rounded-2xl p-5 border border-slate-700/80 hover:border-slate-600 transition space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-wider bg-urgent-950 text-urgent-300 border border-urgent-800 px-2.5 py-0.5 rounded-md">
