@@ -1,9 +1,9 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-
 export const isSupabaseConfigured = (): boolean => {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+
   return Boolean(
     supabaseUrl &&
     supabaseUrl.startsWith('https://') &&
@@ -19,6 +19,9 @@ export const getSupabaseBrowserClient = (): SupabaseClient | null => {
     return null;
   }
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+
   if (!clientInstance && supabaseUrl && supabaseAnonKey) {
     clientInstance = createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
@@ -30,5 +33,3 @@ export const getSupabaseBrowserClient = (): SupabaseClient | null => {
 
   return clientInstance;
 };
-
-export const supabase = getSupabaseBrowserClient();

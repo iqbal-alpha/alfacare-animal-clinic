@@ -1,11 +1,11 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-const serviceRoleKey =
-  process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-
 export const isSupabaseServerConfigured = (): boolean => {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const serviceRoleKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+
   return Boolean(
     supabaseUrl &&
     supabaseUrl.startsWith('https://') &&
@@ -15,7 +15,12 @@ export const isSupabaseServerConfigured = (): boolean => {
 };
 
 export const getSupabaseServerClient = (): SupabaseClient | null => {
-  if (!isSupabaseServerConfigured() || !supabaseUrl || !serviceRoleKey) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const serviceRoleKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+
+  if (!supabaseUrl || !serviceRoleKey || !supabaseUrl.startsWith('https://')) {
     return null;
   }
 
