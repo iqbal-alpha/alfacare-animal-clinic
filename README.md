@@ -2,17 +2,54 @@
 
 > Modern, full-stack veterinary hospital web application & emergency booking engine built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Supabase (PostgreSQL)**.
 
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Website-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://alfacare-animal-clinic.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/iqbal-alpha/alfacare-animal-clinic)
+
 [![Next.js](https://img.shields.io/badge/Next.js-15.2-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL_15-3ECF8E?style=flat&logo=supabase)](https://supabase.com/)
 
+🔗 **Live Production URL:** [https://alfacare-animal-clinic.vercel.app/](https://alfacare-animal-clinic.vercel.app/)
+
 ---
 
 ## 🌟 Overview
 
 **AlfaCare Animal Clinic** is a production-grade veterinary clinical platform engineered to bridge medical precision with high-conversion client communication. Designed specifically for the veterinary ecosystem in South Jakarta, it features transparent pricing estimation, multi-step triage reservations, live database persistence, and automated WhatsApp triage routing.
+
+---
+
+## 📸 Visual Showcase & Interface Tour
+
+### 1. 🏥 Hero Showcase & Emergency Command Center
+Modern asymmetric hero layout featuring live doctor-on-duty telemetry, official SIPDH accreditations, and dual conversion action pathways.
+![AlfaCare Hero Showcase](./docs/screenshots/01-hero-showcase.png)
+
+---
+
+### 2. 🧮 Interactive Service & Pricing Estimator
+Transparent tariff calculator calibrated for Jakarta benchmark rates, supporting dynamic species and weight multiplier logic.
+![Interactive Pricing Estimator](./docs/screenshots/02-pricing-estimator.png)
+
+---
+
+### 3. 📋 4-Step Clinical Booking Funnel
+Streamlined multi-step patient registration with inline validation, triage urgency flags, doctor selection, and PDP data consent.
+![Multi-Step Booking Funnel](./docs/screenshots/03-booking-funnel.png)
+
+---
+
+### 4. 🔬 Verified Clinical Case Studies
+Social proof gallery powered by Supabase PostgreSQL, showcasing Before & After recovery sliders and veterinary specialist notes.
+![Clinical Case Studies](./docs/screenshots/04-clinical-case-studies.png)
+
+---
+
+### 5. 🚨 24/7 Emergency Triage & First-Aid Protocols
+Step-by-step emergency stabilization guide with immediate IGD call bridges and Jakarta clinic location map.
+![Emergency Triage Guide](./docs/screenshots/05-emergency-triage-guide.png)
 
 ---
 
@@ -104,6 +141,8 @@ alfacare-animal-clinic/
 │   │   └── 20261011_init_schema.sql       # PostgreSQL DDL & RLS policies
 │   ├── seed.sql                           # Initial clinical case studies data
 │   └── README-SETUP.md                    # Database migration guide
+├── docs/
+│   └── screenshots/                       # High-resolution portfolio showcase previews
 ├── .env.example                           # Environment configuration template
 └── tailwind.config.ts                     # Extended color palettes & typography
 ```
