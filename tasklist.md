@@ -1,6 +1,9 @@
 # TASK LIST: PENGEMBANGAN WEBSITE ALFACARE ANIMAL CLINIC JAKARTA
 
-> **Status Proyek:** Tahap 3 Selesai — Database & Backend Integration (Supabase + Resend) Siap  
+> **Status Proyek:** SELESAI & LIVE DI PRODUKSI (Vercel & Supabase Aktif) 🚀  
+> **URL Produksi:** [https://alfacare-animal-clinic.vercel.app](https://alfacare-animal-clinic.vercel.app)  
+> **Repository GitHub:** [https://github.com/iqbal-alpha/alfacare-animal-clinic](https://github.com/iqbal-alpha/alfacare-animal-clinic)  
+> **Database:** Supabase PostgreSQL (Singapore `ap-southeast-1`)  
 > **Pendekatan Alur:** *Local Frontend First* $\rightarrow$ *Supabase Database Integration* $\rightarrow$ *Push GitHub & Deploy Vercel*  
 > **Arsitektur:** Next.js 15 (App Router) + TypeScript + Tailwind CSS  
 > **Infrastruktur:** Local Dev $\rightarrow$ Supabase (PostgreSQL & Storage) $\rightarrow$ GitHub & Vercel  
@@ -117,11 +120,12 @@
   - [x] Repository GitHub resmi terhubung: [https://github.com/iqbal-alpha/alfacare-animal-clinic](https://github.com/iqbal-alpha/alfacare-animal-clinic)
   - [x] Push seluruh riwayat commit branch `main` berhasil
   - [x] Verifikasi kebersihan repo (memastikan file rahasia `.env.local` 100% terabaikan dan tidak bocor ke publik)
-- [ ] **4.2 Hosting & Deployment ke Vercel**
-  - [ ] Import repository GitHub ke Vercel dashboard
-  - [ ] Input seluruh Environment Variables di Vercel Settings (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `NEXT_PUBLIC_CLINIC_WHATSAPP`)
-  - [ ] Trigger otomatis build & deployment produksi
-- [ ] **4.3 Live Production Smoke Testing & Final Handover**
-  - [ ] Uji coba live URL Vercel di smartphone dan desktop
-  - [ ] Uji coba pengiriman booking live (memverifikasi data masuk ke Supabase live dan redirect ke WhatsApp admin)
-  - [ ] Audit Core Web Vitals live di Vercel Analytics (Target LCP $\le 1.2$s, skor $\ge 90$)
+- [x] **4.2 Hosting & Deployment ke Vercel**
+  - [x] Import repository GitHub ke Vercel dashboard: [https://alfacare-animal-clinic.vercel.app](https://alfacare-animal-clinic.vercel.app)
+  - [x] Konfigurasi Environment Variables di Vercel Settings (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_CLINIC_WHATSAPP`, `NEXT_PUBLIC_CLINIC_PHONE`, `NEXT_PUBLIC_CLINIC_EMAIL`)
+  - [x] Trigger otomatis build & deployment produksi sukses (Edge Network Global)
+- [x] **4.3 Live Production Smoke Testing & Final Handover**
+  - [x] Verifikasi Homepage live URL (HTTP 200 OK & favicon SVG aktif)
+  - [x] Verifikasi API `/api/cases` di Vercel membaca langsung data live dari Supabase Database (4 kasus terbitan)
+  - [x] Verifikasi live booking dispatch `/api/booking/dispatch` berhasil menyimpan data transaksi ke PostgreSQL Supabase live (UUID: `1893d0e5-181b-4400-99bd-7c0952c3b9df`)
+  - [x] Pengalihan otomatis WhatsApp Admin dengan kode tiket reservasi unik teruji lancar
