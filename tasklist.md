@@ -113,10 +113,10 @@
 ### TAHAP 4: VERSION CONTROL (GITHUB) & CLOUD DEPLOYMENT (VERCEL)
 *(Tahap final peluncuran dan go-live)*
 
-- [ ] **4.1 Upload Repository ke GitHub**
-  - [ ] Buat repository baru di akun GitHub Anda (`alfacare-animal-clinic`)
-  - [ ] Hubungkan remote git lokal dan push branch `main`
-  - [ ] Verifikasi kebersihan repo (memastikan file rahasia `.env.local` terabaikan oleh `.gitignore`)
+- [x] **4.1 Upload Repository ke GitHub**
+  - [x] Repository GitHub resmi terhubung: [https://github.com/iqbal-alpha/alfacare-animal-clinic](https://github.com/iqbal-alpha/alfacare-animal-clinic)
+  - [x] Push seluruh riwayat commit branch `main` berhasil
+  - [x] Verifikasi kebersihan repo (memastikan file rahasia `.env.local` 100% terabaikan dan tidak bocor ke publik)
 - [ ] **4.2 Hosting & Deployment ke Vercel**
   - [ ] Import repository GitHub ke Vercel dashboard
   - [ ] Input seluruh Environment Variables di Vercel Settings (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `NEXT_PUBLIC_CLINIC_WHATSAPP`)
