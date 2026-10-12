@@ -19,9 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-all">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all shadow-xs">
       {/* Top Banner: Status Dokter Jaga & Lokasi */}
-      <div className="bg-brand-900 text-slate-200 px-3.5 sm:px-4 py-1.5 text-[11px] sm:text-xs font-medium border-b border-brand-800/60">
+      <div className="bg-brand-900 text-slate-200 px-3.5 sm:px-6 lg:px-8 py-1.5 text-[11px] sm:text-xs font-medium border-b border-brand-800/60">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
@@ -39,51 +39,53 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
               className="flex items-center gap-1.5 text-urgent-400 hover:text-urgent-300 font-bold transition-colors"
             >
               <PhoneCall className="w-3 h-3" />
-              <span className="sm:hidden">IGD 24 Jam</span>
-              <span className="hidden sm:inline">IGD 24 Jam: (021) 5555-0199</span>
+              <span className="sm:hidden">{currentLocale === 'id' ? 'IGD 24 Jam' : '24/7 ER'}</span>
+              <span className="hidden sm:inline">
+                {currentLocale === 'id' ? 'IGD 24 Jam: (021) 5555-0199' : '24/7 ER: (021) 5555-0199'}
+              </span>
             </a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="#" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-800 to-brand-600 flex items-center justify-center text-white shadow-md shadow-brand-900/20 group-hover:scale-105 transition-transform">
             <HeartPulse className="w-6 h-6 text-emerald-400" />
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
               <span className="font-heading font-black text-xl text-brand-900 tracking-tight">AlfaCare</span>
-              <span className="text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">
+              <span className="text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded">
                 Clinic
               </span>
             </div>
-            <span className="text-[11px] font-medium text-slate-500 -mt-1 tracking-wide">
+            <span className="hidden xl:block text-[11px] font-medium text-slate-500 -mt-0.5 tracking-wide">
               Animal Medical Center Jakarta
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
-          <a href="#services" className="hover:text-brand-700 transition-colors">
+        {/* Desktop Navigation Links (Visible on lg and above) */}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[13px] xl:text-sm font-semibold text-slate-600 tracking-normal">
+          <a href="#services" className="hover:text-brand-900 transition-colors whitespace-nowrap">
             {t.services}
           </a>
-          <a href="#estimator" className="hover:text-brand-700 transition-colors">
+          <a href="#estimator" className="hover:text-brand-900 transition-colors whitespace-nowrap">
             {t.estimator}
           </a>
-          <a href="#cases" className="hover:text-brand-700 transition-colors">
+          <a href="#cases" className="hover:text-brand-900 transition-colors whitespace-nowrap">
             {t.cases}
           </a>
-          <a href="#location" className="hover:text-brand-700 transition-colors">
+          <a href="#location" className="hover:text-brand-900 transition-colors whitespace-nowrap">
             {t.location}
           </a>
         </nav>
 
-        {/* Right CTA Actions */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right CTA Actions (Visible on lg and above) */}
+        <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
           {/* Segmented Language Selector */}
           <div className="inline-flex items-center rounded-xl bg-slate-100 p-0.5 border border-slate-200">
             <button
@@ -115,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
           {/* Book Appointment CTA Button */}
           <a
             href="#booking"
-            className="bg-brand-800 hover:bg-brand-900 text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow-sm hover:shadow transition-all flex items-center gap-1.5"
+            className="bg-brand-800 hover:bg-brand-900 text-white text-xs xl:text-sm font-bold px-3.5 py-2.5 xl:px-4.5 xl:py-2.5 rounded-xl shadow-sm hover:shadow transition-all flex items-center gap-1.5 whitespace-nowrap"
           >
             <span>{t.booking}</span>
           </a>
@@ -125,15 +127,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             href="https://wa.me/6281188997700?text=Halo%20Dokter%20Darurat%20AlfaCare%20Jakarta,%20saya%20membutuhkan%20bantuan%20segera%20untuk%20hewan%20saya"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-urgent-600 hover:bg-urgent-700 text-white text-sm font-bold px-3.5 py-2.5 rounded-xl shadow-md shadow-urgent-600/20 emergency-glow transition-all flex items-center gap-1.5"
+            className="bg-urgent-600 hover:bg-urgent-700 text-white text-xs xl:text-sm font-bold px-3 py-2.5 xl:px-3.5 xl:py-2.5 rounded-xl shadow-md shadow-urgent-600/20 emergency-glow transition-all flex items-center gap-1.5 whitespace-nowrap"
           >
-            <PhoneCall className="w-4 h-4 animate-pulse" />
-            <span>Hotline Darurat</span>
+            <PhoneCall className="w-3.5 h-3.5 xl:w-4 xl:h-4 animate-pulse" />
+            <span>{currentLocale === 'id' ? 'Hotline Darurat' : '24/7 Hotline'}</span>
           </a>
         </div>
 
-        {/* Mobile Actions: Segmented Language & Hamburger */}
-        <div className="flex md:hidden items-center gap-2">
+        {/* Mobile & Tablet Actions (< lg) */}
+        <div className="flex lg:hidden items-center gap-2 sm:gap-2.5">
+          {/* Segmented Language Selector */}
           <div className="inline-flex items-center rounded-lg bg-slate-100 p-0.5 border border-slate-200">
             <button
               type="button"
@@ -158,9 +161,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
               EN
             </button>
           </div>
+
+          {/* Tablet-only quick hotline call button */}
+          <a
+            href="https://wa.me/6281188997700?text=Halo%20Dokter%20Darurat%20AlfaCare%20Jakarta,%20saya%20membutuhkan%20bantuan%20segera%20untuk%20hewan%20saya"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex md:inline-flex items-center gap-1.5 bg-urgent-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm"
+          >
+            <PhoneCall className="w-3.5 h-3.5" />
+            <span>{currentLocale === 'id' ? 'Hotline' : '24/7 Hotline'}</span>
+          </a>
+
+          {/* Hamburger Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-slate-700 hover:text-brand-900 focus:outline-none"
+            className="p-2 text-slate-700 hover:text-brand-900 focus:outline-none rounded-lg hover:bg-slate-100 transition-colors"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -168,51 +184,51 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile & Tablet Drawer (< lg) */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
           <a
             href="#services"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-semibold text-slate-800 py-2 border-b border-slate-100"
+            className="block text-base font-semibold text-slate-800 py-2.5 border-b border-slate-100 hover:text-brand-800 transition-colors"
           >
             {t.services}
           </a>
           <a
             href="#estimator"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-semibold text-slate-800 py-2 border-b border-slate-100"
+            className="block text-base font-semibold text-slate-800 py-2.5 border-b border-slate-100 hover:text-brand-800 transition-colors"
           >
             {t.estimator}
           </a>
           <a
             href="#cases"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-semibold text-slate-800 py-2 border-b border-slate-100"
+            className="block text-base font-semibold text-slate-800 py-2.5 border-b border-slate-100 hover:text-brand-800 transition-colors"
           >
             {t.cases}
           </a>
           <a
             href="#location"
             onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-semibold text-slate-800 py-2 border-b border-slate-100"
+            className="block text-base font-semibold text-slate-800 py-2.5 border-b border-slate-100 hover:text-brand-800 transition-colors"
           >
             {t.location}
           </a>
-          <div className="pt-2 flex flex-col gap-2">
+          <div className="pt-3 flex flex-col gap-2.5">
             <a
               href="#booking"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-brand-800 text-white font-bold py-3 rounded-xl"
+              className="w-full text-center bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all"
             >
               {t.booking}
             </a>
             <a
               href="tel:+622155550199"
-              className="w-full text-center bg-urgent-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"
+              className="w-full text-center bg-urgent-600 hover:bg-urgent-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Hubungi Dokter IGD (24 Jam)</span>
+              <span>{currentLocale === 'id' ? 'Hubungi Dokter IGD (24 Jam)' : 'Call 24/7 Emergency Vet'}</span>
             </a>
           </div>
         </div>

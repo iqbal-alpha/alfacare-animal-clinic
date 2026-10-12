@@ -17,8 +17,9 @@ async function capture() {
   const page = await browser.newPage();
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1.5 });
 
-  console.log('Navigating to live URL...');
-  await page.goto('https://alfacare-animal-clinic.vercel.app/', { waitUntil: 'networkidle0', timeout: 30000 });
+  const targetUrl = process.env.APP_URL || 'http://localhost:3000';
+  console.log(`Navigating to ${targetUrl}...`);
+  await page.goto(targetUrl, { waitUntil: 'networkidle0', timeout: 30000 });
 
   // 1. Hero Showcase (Full viewport with sticky header and badges)
   console.log('Capturing Hero Section...');

@@ -58,7 +58,7 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
       ];
 
   return (
-    <section className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="emergency" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Authoritative Emergency Command Card Container */}
         <div className="bg-[#071220] text-white rounded-3xl p-7 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
