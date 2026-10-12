@@ -85,7 +85,14 @@ Step-by-step emergency stabilization guide with immediate IGD call bridges and J
 - Formatted bilingual WhatsApp dispatcher with unique appointment ticket codes (`ALFA-YYYYMMDD-XXX`).
 
 ### 6. 🌐 Bilingual Medical Experience (ID / EN)
-- Instant toggle between Bahasa Indonesia and English across all UI components, pricing catalogs, and triage guides.
+- Intuitive segmented toggle (`[ ID | EN ]`) with persistent localStorage synchronization across all UI components, pricing catalogs, and triage guides.
+- Full parity between Indonesian and English translations for clinical badges, operating schedules, and rating credentials.
+
+### 7. 📱 Mobile-First UX & Anti-Clutter Optimization
+- Streamlined above-the-fold layout eliminating text overload on mobile screens.
+- Side-by-side action buttons (`Jadwalkan Janji` & `Cek Estimasi Tarif`) preventing excessive vertical scrolling.
+- High-end clinical trust micro-chips replacing bulky text cards for comfortable readability on smartphones.
+- Single-line sticky doctor-on-duty status header with emergency tap hotline.
 
 ---
 

@@ -59,7 +59,7 @@ export default function Home() {
   const isId = currentLocale === 'id';
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-emerald-500 selection:text-white pb-20 md:pb-0">
       {/* 1. Header & Navigation */}
       <Navbar currentLocale={currentLocale} onLocaleChange={handleLocaleChange} />
 
@@ -67,9 +67,9 @@ export default function Home() {
       <HeroSection currentLocale={currentLocale} />
 
       {/* 3. Core Clinical Services Showcase */}
-      <section id="services" className="py-16 lg:py-24 bg-white border-b border-slate-200">
+      <section id="services" className="py-12 sm:py-16 lg:py-24 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
               <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
               <span>{isId ? 'Standar Medis Terakreditasi' : 'Accredited Medical Standards'}</span>
@@ -77,14 +77,14 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-brand-900 tracking-tight">
               {isId ? 'Layanan Klinis Unggulan AlfaCare' : 'Core Clinical Services at AlfaCare'}
             </h2>
-            <p className="text-sm text-slate-600 mt-2.5 max-w-lg mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
               {isId
                 ? 'Didukung peralatan modern, ruang bedah steril standar rumah sakit manusia, dan tim dokter berizin resmi.'
                 : 'Backed by modern medical equipment, ISO human-grade sterile surgical theaters, and licensed veterinary surgeons.'}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
                 icon: Stethoscope,
@@ -143,7 +143,7 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className={`p-6 rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
+                  className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
                     srv.featured
                       ? 'bg-gradient-to-b from-white to-emerald-50/40 border-emerald-200/90 shadow-sm hover:shadow-lg hover:border-emerald-300'
                       : 'bg-white hover:bg-slate-50/60 border-slate-200/80 shadow-sm hover:shadow-md'

@@ -21,25 +21,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-all">
       {/* Top Banner: Status Dokter Jaga & Lokasi */}
-      <div className="bg-brand-900 text-slate-200 px-4 py-1.5 text-xs font-medium">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div className="bg-brand-900 text-slate-200 px-3.5 sm:px-4 py-1.5 text-[11px] sm:text-xs font-medium border-b border-brand-800/60">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-emerald-300 font-semibold">{t.doctorOnDuty}</span>
-            <span className="text-slate-400">|</span>
-            <span className="text-slate-300 hidden sm:inline">Jl. Senopati Raya No. 88, Kebayoran Baru, Jakarta Selatan</span>
+            <span className="text-slate-500 hidden sm:inline">·</span>
+            <span className="text-slate-300 hidden sm:inline">Jl. Senopati Raya No. 88, Jaksel</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
             <a
               href="tel:+622155550199"
               className="flex items-center gap-1.5 text-urgent-400 hover:text-urgent-300 font-bold transition-colors"
             >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>IGD 24 Jam: (021) 5555-0199</span>
+              <PhoneCall className="w-3 h-3" />
+              <span className="sm:hidden">IGD 24 Jam</span>
+              <span className="hidden sm:inline">IGD 24 Jam: (021) 5555-0199</span>
             </a>
           </div>
         </div>
@@ -83,15 +84,33 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
 
         {/* Right CTA Actions */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Language Toggle Button */}
-          <button
-            onClick={toggleLocale}
-            className="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg border border-slate-200 transition-colors"
-            title="Switch Language"
-          >
-            <Globe className="w-3.5 h-3.5 text-brand-600" />
-            <span>{currentLocale === 'id' ? 'ID' : 'EN'}</span>
-          </button>
+          {/* Segmented Language Selector */}
+          <div className="inline-flex items-center rounded-xl bg-slate-100 p-0.5 border border-slate-200">
+            <button
+              type="button"
+              onClick={() => onLocaleChange('id')}
+              className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+                currentLocale === 'id'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+              title="Bahasa Indonesia"
+            >
+              ID
+            </button>
+            <button
+              type="button"
+              onClick={() => onLocaleChange('en')}
+              className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+                currentLocale === 'en'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+              title="English"
+            >
+              EN
+            </button>
+          </div>
 
           {/* Book Appointment CTA Button */}
           <a
@@ -113,14 +132,32 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Actions: Segmented Language & Hamburger */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={toggleLocale}
-            className="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-1.5 rounded-lg border border-slate-200"
-          >
-            {currentLocale === 'id' ? 'ID' : 'EN'}
-          </button>
+          <div className="inline-flex items-center rounded-lg bg-slate-100 p-0.5 border border-slate-200">
+            <button
+              type="button"
+              onClick={() => onLocaleChange('id')}
+              className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                currentLocale === 'id'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              ID
+            </button>
+            <button
+              type="button"
+              onClick={() => onLocaleChange('en')}
+              className={`px-2 py-1 text-xs font-bold rounded-md transition-all ${
+                currentLocale === 'en'
+                  ? 'bg-emerald-600 text-white shadow-xs'
+                  : 'text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              EN
+            </button>
+          </div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-700 hover:text-brand-900 focus:outline-none"
