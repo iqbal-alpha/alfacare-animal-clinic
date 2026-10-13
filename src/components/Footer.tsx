@@ -14,15 +14,17 @@ export const Footer: React.FC<FooterProps> = ({ currentLocale }) => {
   const isId = currentLocale === 'id';
 
   return (
-    <footer className="bg-[#071220] text-slate-300 pt-16 pb-28 md:pb-16 border-t border-slate-800 text-xs">
+    <footer className="bg-[#111827] text-slate-300 pt-16 pb-28 md:pb-16 border-t border-slate-800 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800/90">
           {/* Col 1: Brand & Contact Info (5 Cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-950/40">
-                <HeartPulse className="w-5 h-5 text-emerald-300" />
-              </div>
+              <img
+                src="/icon.svg"
+                alt="AlfaCare Animal Clinic Logo"
+                className="w-8 h-8"
+              />
               <div className="flex items-center gap-2">
                 <span className="font-heading font-black text-2xl text-white tracking-tight">AlfaCare</span>
                 <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-2 py-0.5 rounded-md">

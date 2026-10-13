@@ -226,15 +226,15 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
   };
 
   return (
-    <section id="booking" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="booking" className="py-16 lg:py-24 bg-[#FDF6F1] border-b border-[#EED4C6]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-900 border border-brand-200 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-            <Calendar className="w-4 h-4 text-brand-700" />
+          <div className="inline-flex items-center gap-2 bg-white/80 text-[#8C3A15] border border-[#EED4C6] text-xs font-bold px-3 py-1.5 rounded-full mb-3 shadow-2xs">
+            <Calendar className="w-4 h-4 text-[#8C3A15]" />
             <span>{t.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-black text-brand-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-heading font-black text-[#111827] tracking-tight">
             {t.title}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
@@ -245,7 +245,7 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
         {/* Step Progress Tracker */}
         <div className="mb-8">
           <div className="flex items-center justify-between relative">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-200 -translate-y-1/2 -z-0" />
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-[#EED4C6] -translate-y-1/2 -z-0" />
             <div
               className="absolute top-1/2 left-0 h-1 bg-emerald-500 -translate-y-1/2 -z-0 transition-all duration-300"
               style={{ width: `${((step - 1) / 3) * 100}%` }}
@@ -265,17 +265,17 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
                   }}
                   className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-heading font-bold text-xs sm:text-sm border-2 transition-all ${
                     step === s.num
-                      ? 'bg-brand-900 text-white border-brand-900 shadow-md ring-4 ring-brand-100'
+                      ? 'bg-[#111827] text-white border-[#111827] shadow-md ring-4 ring-[#F9E1D4]'
                       : s.num < step
                       ? 'bg-emerald-500 text-white border-emerald-500'
-                      : 'bg-white text-slate-400 border-slate-300'
+                      : 'bg-white text-slate-400 border-[#EED4C6]'
                   }`}
                 >
                   {s.num < step ? <CheckCircle2 className="w-5 h-5" /> : s.num}
                 </button>
                 <span
                   className={`text-[11px] font-bold mt-1.5 hidden sm:inline ${
-                    step === s.num ? 'text-brand-900' : s.num < step ? 'text-emerald-700' : 'text-slate-400'
+                    step === s.num ? 'text-[#111827]' : s.num < step ? 'text-emerald-700' : 'text-slate-400'
                   }`}
                 >
                   {s.label}
@@ -286,7 +286,7 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
         </div>
 
         {/* Card Form Container */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xl shadow-brand-950/5">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EED4C6] shadow-xl shadow-stone-900/5">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* STEP 1: Profil Pasien Hewan */}
             {step === 1 && (
@@ -682,13 +682,13 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between pt-6 border-t border-slate-100">
+            <div className="flex items-center justify-between pt-6 border-t border-[#F2E8E1]">
               {step > 1 ? (
                 <button
                   type="button"
                   onClick={handleBack}
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition disabled:opacity-50"
+                  className="inline-flex items-center gap-2 text-slate-700 hover:text-black font-bold text-xs sm:text-sm px-5 py-3 rounded-full border border-[#E5D7CD] hover:bg-[#FDF6F1] transition disabled:opacity-50 cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>{t.btnBack}</span>
@@ -701,7 +701,7 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-md transition"
+                  className="inline-flex items-center gap-2 bg-[#111827] hover:bg-black active:scale-[0.98] text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md transition cursor-pointer"
                 >
                   <span>{t.btnNext}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -710,7 +710,7 @@ export const MultiStepBooking: React.FC<MultiStepBookingProps> = ({ currentLocal
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5 disabled:opacity-75 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg shadow-emerald-600/25 transition transform hover:-translate-y-0.5 disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>

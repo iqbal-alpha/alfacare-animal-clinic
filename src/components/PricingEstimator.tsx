@@ -166,15 +166,15 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
   };
 
   return (
-    <section id="estimator" className="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <section id="estimator" className="py-16 lg:py-24 bg-[#F2F6FA] border-b border-[#CCD8E2]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-            <Calculator className="w-4 h-4 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 bg-white/80 border border-[#CCD8E2] text-[#1E3A5F] text-xs font-bold px-3 py-1.5 rounded-full mb-3 shadow-2xs">
+            <Calculator className="w-4 h-4 text-[#1E3A5F]" />
             <span>{t.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-heading font-black text-brand-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-heading font-black text-[#111827] tracking-tight">
             {t.title}
           </h2>
           <p className="mt-3 text-base text-slate-600 leading-relaxed font-normal">
@@ -185,7 +185,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
         {/* Interactive Estimator Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Parameter Inputs (8 Cols) */}
-          <div className="lg:col-span-7 space-y-8 bg-slate-50/80 p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm">
+          <div className="lg:col-span-7 space-y-8 bg-white p-6 sm:p-8 rounded-3xl border border-[#D5DFE8] shadow-sm">
             {/* Step 1: Species Selector */}
             <div>
               <label className="block text-sm font-bold text-slate-900 mb-3">
@@ -206,13 +206,13 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                       onClick={() => handleSpeciesChange(item.id)}
                       className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all text-center active:scale-[0.98] cursor-pointer ${
                         isSelected
-                          ? 'border-emerald-600 bg-emerald-50 text-brand-900 font-bold shadow-sm'
-                          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                          ? 'border-[#111827] bg-[#111827] text-white font-bold shadow-md'
+                          : 'border-[#E2EAF1] bg-[#F8FAFC] text-slate-700 hover:border-[#CCD8E2]'
                       }`}
                     >
                       <div
                         className={`w-10 h-10 rounded-xl mb-2 flex items-center justify-center transition-colors ${
-                          isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-600'
+                          isSelected ? 'bg-white/20 text-white' : 'bg-white text-slate-700 shadow-2xs'
                         }`}
                       >
                         <IconComp className="w-5 h-5" />
@@ -248,12 +248,12 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                       onClick={() => setSelectedWeight(w.id)}
                       className={`p-3 rounded-xl border text-xs font-semibold transition-all text-center ${
                         selectedWeight === w.id
-                          ? 'border-emerald-600 bg-emerald-600 text-white shadow-sm'
-                          : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-100'
+                          ? 'border-[#111827] bg-[#111827] text-white shadow-sm'
+                          : 'border-[#E2EAF1] bg-[#F8FAFC] text-slate-700 hover:bg-slate-100'
                       }`}
                     >
                       <div className="font-bold">{w.label}</div>
-                      <div className={selectedWeight === w.id ? 'text-emerald-100 text-[10px]' : 'text-slate-400 text-[10px]'}>
+                      <div className={selectedWeight === w.id ? 'text-slate-300 text-[10px]' : 'text-slate-400 text-[10px]'}>
                         Faktor: {w.mult}
                       </div>
                     </button>
@@ -262,8 +262,8 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                 <p className="text-[11px] text-slate-500 mt-2 font-normal">{t.weightNotice}</p>
               </div>
             ) : (
-              <div className="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 flex items-center gap-2">
-                <span className="font-bold text-brand-800">Bobot Pasien:</span>
+              <div className="p-3 bg-[#F8FAFC] rounded-xl border border-[#D5DFE8] text-xs text-slate-600 flex items-center gap-2">
+                <span className="font-bold text-[#111827]">Bobot Pasien:</span>
                 <span>Standar Spesies (Flat Rate Multiplier 1.0x)</span>
               </div>
             )}
@@ -288,25 +288,25 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                       onClick={() => setSelectedServiceCode(service.code)}
                       className={`p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                         isSelected
-                          ? 'border-emerald-600 bg-emerald-50/50 shadow-sm'
-                          : 'border-slate-200 bg-white hover:border-slate-300'
+                          ? 'border-[#111827] bg-[#FDF6F1] shadow-xs'
+                          : 'border-[#E2EAF1] bg-white hover:border-[#CCD8E2]'
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <div
                           className={`w-5 h-5 rounded-full mt-0.5 flex items-center justify-center shrink-0 border ${
-                            isSelected ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 bg-white'
+                            isSelected ? 'bg-[#111827] border-[#111827] text-white' : 'border-slate-300 bg-white'
                           }`}
                         >
                           {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
                         <div>
-                          <p className="text-xs sm:text-sm font-bold text-slate-900">{name}</p>
+                          <p className="text-xs sm:text-sm font-bold text-[#111827]">{name}</p>
                           <p className="text-[11px] text-slate-500 font-normal mt-0.5 line-clamp-1">{desc}</p>
                         </div>
                       </div>
                       <div className="text-right shrink-0">
-                        <span className="text-xs sm:text-sm font-extrabold text-brand-900 font-heading">
+                        <span className="text-xs sm:text-sm font-extrabold text-[#111827] font-heading">
                           {basePriceFormatted}
                         </span>
                         {service.appliesWeightMultiplier && selectedSpecies === 'DOG' && (
@@ -320,10 +320,10 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
 
               {/* Inpatient Days Slider (If service is Inpatient) */}
               {primaryService.category === 'INPATIENT' && (
-                <div className="mt-4 p-4 rounded-xl bg-white border border-brand-200">
+                <div className="mt-4 p-4 rounded-xl bg-[#F8FAFC] border border-[#CCD8E2]">
                   <div className="flex justify-between items-center text-xs font-bold text-slate-800 mb-2">
                     <span>Estimasi Durasi Rawat Inap:</span>
-                    <span className="text-emerald-700 text-sm font-extrabold">{inpatientDays} Hari / Days</span>
+                    <span className="text-[#111827] text-sm font-extrabold">{inpatientDays} Hari / Days</span>
                   </div>
                   <input
                     type="range"
@@ -332,7 +332,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                     step="1"
                     value={inpatientDays}
                     onChange={(e) => setInpatientDays(parseInt(e.target.value))}
-                    className="w-full accent-emerald-600 cursor-pointer"
+                    className="w-full accent-[#111827] cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                     <span>1 Hari (Observasi)</span>
@@ -360,14 +360,14 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                       onClick={() => toggleAddon(addon.code)}
                       className={`p-3 rounded-xl border text-xs cursor-pointer flex items-center justify-between gap-2 transition-all ${
                         isChecked
-                          ? 'border-emerald-600 bg-emerald-50/70 font-semibold'
-                          : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-100'
+                          ? 'border-[#111827] bg-[#FDF6F1] font-semibold'
+                          : 'border-[#E2EAF1] bg-white text-slate-700 hover:bg-slate-50'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <div
                           className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
-                            isChecked ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 bg-white'
+                            isChecked ? 'bg-[#111827] border-[#111827] text-white' : 'border-slate-300 bg-white'
                           }`}
                         >
                           {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -382,21 +382,21 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
             </div>
 
             {/* Emergency Surcharge Toggle */}
-            <div className="pt-2 border-t border-slate-200">
-              <label className="flex items-center justify-between p-3.5 rounded-2xl bg-urgent-50 border border-urgent-200 cursor-pointer group">
+            <div className="pt-2 border-t border-[#E2EAF1]">
+              <label className="flex items-center justify-between p-3.5 rounded-2xl bg-[#FDF2F2] border border-[#F5C2C2] cursor-pointer group">
                 <div className="flex items-center gap-3">
                   <input
                     type="checkbox"
                     checked={emergencyActive}
                     onChange={(e) => setEmergencyActive(e.target.checked)}
-                    className="w-4 h-4 rounded text-urgent-600 focus:ring-urgent-500 accent-urgent-600 cursor-pointer"
+                    className="w-4 h-4 rounded text-[#A83232] focus:ring-[#A83232] accent-[#A83232] cursor-pointer"
                   />
                   <div className="text-xs">
-                    <span className="font-bold text-urgent-900 block">{t.emergencyToggle}</span>
-                    <span className="text-[11px] text-urgent-700 font-normal">Kunjungan di luar jam 08:00 - 22:00 WIB</span>
+                    <span className="font-bold text-[#8F2828] block">{t.emergencyToggle}</span>
+                    <span className="text-[11px] text-[#A83232] font-normal">Kunjungan di luar jam 08:00 - 22:00 WIB</span>
                   </div>
                 </div>
-                <span className="text-xs font-bold text-urgent-700">
+                <span className="text-xs font-bold text-[#A83232]">
                   +{formatCurrency(currentLocale === 'id' ? 250000 : 17)}
                 </span>
               </label>
@@ -405,8 +405,8 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
 
           {/* Right Column: Live Calculation Summary Card (5 Cols Sticky) */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="bg-brand-900 text-white p-6 sm:p-7 rounded-3xl shadow-xl shadow-brand-950/20 border border-brand-800 space-y-6">
-              <div className="flex items-center justify-between border-b border-brand-800 pb-4">
+            <div className="bg-[#111827] text-white p-6 sm:p-7 rounded-3xl shadow-xl shadow-brand-950/20 border border-slate-800 space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-emerald-400" />
                   <h3 className="font-heading font-bold text-lg text-white">{t.breakdownTitle}</h3>
@@ -450,9 +450,9 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
                 </div>
 
                 {emergencyActive && (
-                  <div className="flex justify-between items-center text-urgent-300">
+                  <div className="flex justify-between items-center text-rose-300">
                     <span className="font-medium">{t.emergencyFee}</span>
-                    <span className="font-bold text-urgent-400 font-heading">
+                    <span className="font-bold text-rose-400 font-heading">
                       +{formatCurrency(calculation.emergencySurcharge)}
                     </span>
                   </div>
@@ -460,7 +460,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               </div>
 
               {/* Total Price Display */}
-              <div className="bg-[#060F1E] p-5 rounded-2xl border border-slate-700/80 text-center">
+              <div className="bg-[#0B0F17] p-5 rounded-2xl border border-slate-800 text-center">
                 <span className="text-xs text-slate-400 font-semibold block mb-1">
                   {t.totalEstimate}
                 </span>
@@ -473,7 +473,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               </div>
 
               {/* Medical Notice Box */}
-              <div className="p-3.5 bg-brand-800/80 rounded-xl border border-brand-700 text-slate-300 text-[11px] leading-relaxed flex items-start gap-2.5">
+              <div className="p-3.5 bg-slate-900/90 rounded-xl border border-slate-800 text-slate-300 text-[11px] leading-relaxed flex items-start gap-2.5">
                 <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block mb-0.5">{t.disclaimerTitle}</span>
@@ -485,7 +485,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               <button
                 type="button"
                 onClick={handleApplyToBooking}
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-brand-950 font-heading font-black text-sm sm:text-base py-4 px-6 rounded-2xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-[#111827] font-heading font-black text-sm sm:text-base py-4 px-6 rounded-full shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>{t.ctaLockEstimate}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

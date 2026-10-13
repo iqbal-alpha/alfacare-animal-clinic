@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#eed4c6] bg-[#F9E1D4]/95 backdrop-blur-md transition-all shadow-2xs">
+    <header className="sticky top-0 z-50 w-full border-b border-[#eed4c6] bg-[#F9E1D4] backdrop-blur-md transition-all shadow-2xs">
       {/* Top Banner: Status Dokter Jaga & Lokasi */}
       <div className="bg-[#111827] text-slate-200 px-3.5 sm:px-6 lg:px-8 py-1 text-[11px] font-medium border-b border-black">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

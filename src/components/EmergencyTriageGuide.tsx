@@ -58,18 +58,18 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
       ];
 
   return (
-    <section id="emergency" className="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="emergency" className="py-16 lg:py-24 bg-[#FDFBF7] border-b border-[#E8EEF3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Authoritative Emergency Command Card Container */}
-        <div className="bg-[#071220] text-white rounded-3xl p-7 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#111827] text-white rounded-3xl p-7 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
           {/* Subtle emergency ambient glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-urgent-600/10 rounded-full blur-3xl pointer-events-none -z-0" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#A83232]/15 rounded-full blur-3xl pointer-events-none -z-0" />
 
           {/* Header Row */}
           <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-slate-800">
             <div>
-              <div className="inline-flex items-center gap-2 bg-urgent-500/20 text-urgent-300 border border-urgent-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-                <ShieldAlert className="w-4 h-4 text-urgent-400" />
+              <div className="inline-flex items-center gap-2 bg-[#A83232]/20 text-rose-300 border border-[#A83232]/40 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+                <ShieldAlert className="w-4 h-4 text-rose-400" />
                 <span>{isId ? 'Panduan Pertolongan Pertama Medis' : 'Veterinary First-Aid Protocol'}</span>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black tracking-tight text-white">
@@ -84,7 +84,7 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
 
             <a
               href="tel:+622155550199"
-              className="inline-flex items-center justify-center gap-2 bg-urgent-600 hover:bg-urgent-700 text-white font-heading font-bold text-sm px-6 py-3.5 rounded-2xl shadow-lg shadow-urgent-600/30 emergency-glow transition shrink-0 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 bg-[#A83232] hover:bg-[#8F2828] text-white font-heading font-bold text-sm px-7 py-3.5 rounded-full shadow-lg shadow-[#A83232]/30 transition shrink-0 active:scale-[0.98]"
             >
               <PhoneCall className="w-4 h-4" />
               <span>{isId ? 'Panggil Dokter Darurat Sekarang' : 'Call Emergency Hotline'}</span>
@@ -96,7 +96,7 @@ export const EmergencyTriageGuide: React.FC<EmergencyTriageGuideProps> = ({ curr
             {triageTips.map((tip, idx) => (
               <div
                 key={idx}
-                className="bg-[#0D1D35] rounded-2xl p-5 border border-slate-700/80 hover:border-slate-600 transition space-y-3"
+                className="bg-[#192231] rounded-2xl p-5 border border-slate-700/80 hover:border-slate-600 transition space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-wider bg-urgent-950 text-urgent-300 border border-urgent-800 px-2.5 py-0.5 rounded-md">

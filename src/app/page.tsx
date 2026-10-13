@@ -59,7 +59,7 @@ export default function Home() {
   const isId = currentLocale === 'id';
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-emerald-500 selection:text-white pb-20 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] selection:bg-emerald-500 selection:text-white pb-20 md:pb-0">
       {/* 1. Header & Navigation */}
       <Navbar currentLocale={currentLocale} onLocaleChange={handleLocaleChange} />
 
@@ -67,14 +67,14 @@ export default function Home() {
       <HeroSection currentLocale={currentLocale} />
 
       {/* 3. Core Clinical Services Showcase */}
-      <section id="services" className="py-12 sm:py-16 lg:py-24 bg-white border-b border-slate-200">
+      <section id="services" className="py-12 sm:py-16 lg:py-24 bg-[#FDFBF7] border-b border-[#E8EEF3]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-              <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
+            <div className="inline-flex items-center gap-1.5 bg-[#D8E1EA]/80 border border-[#CCD8E2] text-[#1E3A5F] text-xs font-bold px-3 py-1.5 rounded-full mb-3 shadow-2xs">
+              <Stethoscope className="w-3.5 h-3.5 text-[#1E3A5F]" />
               <span>{isId ? 'Standar Medis Terakreditasi' : 'Accredited Medical Standards'}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-brand-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-[#111827] tracking-tight">
               {isId ? 'Layanan Klinis Unggulan AlfaCare' : 'Core Clinical Services at AlfaCare'}
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg mx-auto">
@@ -145,32 +145,32 @@ export default function Home() {
                   key={idx}
                   className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 flex flex-col justify-between group ${
                     srv.featured
-                      ? 'bg-gradient-to-b from-white to-emerald-50/40 border-emerald-200/90 shadow-sm hover:shadow-lg hover:border-emerald-300'
-                      : 'bg-white hover:bg-slate-50/60 border-slate-200/80 shadow-sm hover:shadow-md'
+                      ? 'bg-gradient-to-b from-white to-[#FDF4EE] border-[#F0D5C7] shadow-xs hover:shadow-lg hover:border-[#E8BFA8]'
+                      : 'bg-white hover:bg-[#FDFBF7] border-[#E2EAF1] shadow-xs hover:shadow-md hover:border-[#CCD8E2]'
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-2xl bg-[#D8E1EA]/50 border border-[#CCD8E2] text-[#111827] flex items-center justify-center group-hover:scale-105 transition-transform">
                         <IconComp className="w-6 h-6" />
                       </div>
                       {srv.featured && (
-                        <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full border border-emerald-200">
+                        <span className="text-[10px] font-bold uppercase tracking-wider bg-[#F9E1D4] text-[#8C3A15] px-2.5 py-1 rounded-full border border-[#EED4C6]">
                           {isId ? srv.badgeId : srv.badgeEn}
                         </span>
                       )}
                     </div>
-                    <h3 className="font-heading font-bold text-base sm:text-lg text-brand-900 group-hover:text-emerald-700 transition">
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-[#111827] group-hover:text-emerald-700 transition">
                       {isId ? srv.titleId : srv.titleEn}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
                       {isId ? srv.descId : srv.descEn}
                     </p>
                   </div>
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div className="pt-4 mt-4 border-t border-[#EEF2F6] flex items-center justify-between">
                     <a
                       href="#booking"
-                      className="text-xs font-bold text-emerald-700 hover:text-emerald-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                      className="text-xs font-bold text-[#111827] hover:text-emerald-700 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform"
                     >
                       <span>{isId ? 'Konsultasi Layanan' : 'Consult Service'}</span>
                       <ArrowRight className="w-3.5 h-3.5" />

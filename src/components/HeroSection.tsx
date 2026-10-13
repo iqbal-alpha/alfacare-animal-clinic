@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
   return (
     <section className="relative overflow-hidden bg-[#F9E1D4]">
       {/* 1. TOP SECTION: WARM BLUSH PEACH CANVAS */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-14 pb-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 lg:pt-16 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-end">
           
           {/* Left Column: Big Editorial Typography & Actions (6 Cols) */}
@@ -77,8 +77,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
 
           {/* Right Column: Floating 24h Card & Peeking Pets (6 Cols) */}
           <div className="lg:col-span-6 relative flex flex-col items-center lg:items-end justify-end">
-            {/* Floating 24h Box in Top Right - Generously elevated above cat with clean clearance */}
-            <div className="absolute -top-14 sm:-top-22 lg:-top-20 right-1 sm:right-4 lg:right-2 z-40 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[125px] border border-slate-800 transition-transform hover:-translate-y-1">
+            {/* Floating 24h Box in Top Right - Kept cleanly within hero section bounds (z-20, top-0 sm:top-2) */}
+            <div className="absolute top-0 sm:top-2 right-1 sm:right-4 lg:right-2 z-20 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[125px] border border-slate-800 transition-transform hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl font-heading font-black tracking-tight text-white block">
                 24h
               </span>
