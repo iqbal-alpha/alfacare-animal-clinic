@@ -19,9 +19,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all shadow-xs">
+    <header className="sticky top-0 z-40 w-full border-b border-[#eed4c6] bg-[#F9E1D4]/95 backdrop-blur-md transition-all shadow-2xs">
       {/* Top Banner: Status Dokter Jaga & Lokasi */}
-      <div className="bg-brand-900 text-slate-200 px-3.5 sm:px-6 lg:px-8 py-1.5 text-[11px] sm:text-xs font-medium border-b border-brand-800/60">
+      <div className="bg-[#111827] text-slate-200 px-3.5 sm:px-6 lg:px-8 py-1.5 text-[11px] sm:text-xs font-medium border-b border-black">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
@@ -69,17 +69,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
         </a>
 
         {/* Desktop Navigation Links (Visible on lg and above) */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[13px] xl:text-sm font-semibold text-slate-600 tracking-normal">
-          <a href="#services" className="hover:text-brand-900 transition-colors whitespace-nowrap">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8 text-[13px] xl:text-sm font-semibold text-slate-800 tracking-normal">
+          <a href="#services" className="hover:text-black transition-colors whitespace-nowrap">
             {t.services}
           </a>
-          <a href="#estimator" className="hover:text-brand-900 transition-colors whitespace-nowrap">
+          <a href="#estimator" className="hover:text-black transition-colors whitespace-nowrap">
             {t.estimator}
           </a>
-          <a href="#cases" className="hover:text-brand-900 transition-colors whitespace-nowrap">
+          <a href="#cases" className="hover:text-black transition-colors whitespace-nowrap">
             {t.cases}
           </a>
-          <a href="#location" className="hover:text-brand-900 transition-colors whitespace-nowrap">
+          <a href="#location" className="hover:text-black transition-colors whitespace-nowrap">
             {t.location}
           </a>
         </nav>
@@ -87,14 +87,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
         {/* Right CTA Actions (Visible on lg and above) */}
         <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
           {/* Segmented Language Selector */}
-          <div className="inline-flex items-center rounded-xl bg-slate-100 p-0.5 border border-slate-200">
+          <div className="inline-flex items-center rounded-full bg-white/70 p-0.5 border border-[#eed4c6]">
             <button
               type="button"
               onClick={() => onLocaleChange('id')}
-              className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+              className={`px-2.5 py-1 text-xs font-bold rounded-full transition-all ${
                 currentLocale === 'id'
-                  ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-[#111827] text-white shadow-xs'
+                  : 'text-slate-700 hover:text-black'
               }`}
               title="Bahasa Indonesia"
             >
@@ -103,10 +103,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             <button
               type="button"
               onClick={() => onLocaleChange('en')}
-              className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all ${
+              className={`px-2.5 py-1 text-xs font-bold rounded-full transition-all ${
                 currentLocale === 'en'
-                  ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-[#111827] text-white shadow-xs'
+                  : 'text-slate-700 hover:text-black'
               }`}
               title="English"
             >
@@ -117,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
           {/* Book Appointment CTA Button */}
           <a
             href="#booking"
-            className="bg-brand-800 hover:bg-brand-900 text-white text-xs xl:text-sm font-bold px-3.5 py-2.5 xl:px-4.5 xl:py-2.5 rounded-xl shadow-sm hover:shadow transition-all flex items-center gap-1.5 whitespace-nowrap"
+            className="bg-[#111827] hover:bg-black text-white text-xs xl:text-sm font-semibold px-4.5 py-2.5 rounded-full shadow-sm hover:shadow transition-all flex items-center gap-1.5 whitespace-nowrap"
           >
             <span>{t.booking}</span>
           </a>
