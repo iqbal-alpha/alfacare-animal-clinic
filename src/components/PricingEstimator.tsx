@@ -405,78 +405,82 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
 
           {/* Right Column: Live Calculation Summary Card (5 Cols Sticky) */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="bg-[#111827] text-white p-6 sm:p-7 rounded-3xl shadow-xl shadow-brand-950/20 border border-slate-800 space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div className="bg-white text-slate-800 p-6 sm:p-7 rounded-3xl shadow-xl shadow-slate-300/30 border border-[#CCD8E2] space-y-6">
+              <div className="flex items-center justify-between border-b border-[#E2EAF1] pb-4">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-emerald-400" />
-                  <h3 className="font-heading font-bold text-lg text-white">{t.breakdownTitle}</h3>
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+                    <Sparkles className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <h3 className="font-heading font-bold text-lg text-[#111827]">{t.breakdownTitle}</h3>
                 </div>
-                <span className="text-xs font-medium text-slate-400">AlfaCare Benchmark</span>
+                <span className="text-[11px] font-semibold text-slate-500 bg-[#F2F6FA] border border-[#CCD8E2] px-2.5 py-1 rounded-full">
+                  AlfaCare Benchmark
+                </span>
               </div>
 
               {/* Breakdown Items List */}
-              <div className="space-y-3 text-xs">
-                <div className="flex justify-between items-start text-slate-300">
+              <div className="space-y-3.5 text-xs">
+                <div className="flex justify-between items-start text-slate-600">
                   <div>
-                    <span className="block font-medium">{t.baseFee}</span>
-                    <span className="text-[11px] text-emerald-400">
+                    <span className="block font-semibold text-slate-900">{t.baseFee}</span>
+                    <span className="text-[11px] text-emerald-700 font-medium">
                       {currentLocale === 'id' ? primaryService.nameId : primaryService.nameEn}
                     </span>
                   </div>
-                  <span className="font-bold text-white font-heading">
+                  <span className="font-extrabold text-[#111827] font-heading text-sm">
                     {formatCurrency(calculation.basePrice)}
                   </span>
                 </div>
 
                 {primaryService.appliesWeightMultiplier && selectedSpecies === 'DOG' && (
-                  <div className="flex justify-between items-center text-slate-300">
+                  <div className="flex justify-between items-center text-slate-600">
                     <span className="font-medium">{t.weightMultiplierLabel}</span>
-                    <span className="font-bold text-emerald-300">{weightMultiplier}x</span>
+                    <span className="font-bold text-emerald-700">{weightMultiplier}x</span>
                   </div>
                 )}
 
                 {primaryService.category === 'INPATIENT' && (
-                  <div className="flex justify-between items-center text-slate-300">
+                  <div className="flex justify-between items-center text-slate-600">
                     <span className="font-medium">Durasi Rawat Inap</span>
-                    <span className="font-bold text-emerald-300">{inpatientDays} Hari</span>
+                    <span className="font-bold text-emerald-700">{inpatientDays} Hari</span>
                   </div>
                 )}
 
-                <div className="flex justify-between items-center text-slate-300">
+                <div className="flex justify-between items-center text-slate-600">
                   <span className="font-medium">{t.addonsFee}</span>
-                  <span className="font-bold text-white font-heading">
+                  <span className="font-extrabold text-[#111827] font-heading text-sm">
                     {formatCurrency(calculation.addonsTotal)}
                   </span>
                 </div>
 
                 {emergencyActive && (
-                  <div className="flex justify-between items-center text-rose-300">
+                  <div className="flex justify-between items-center text-[#A83232]">
                     <span className="font-medium">{t.emergencyFee}</span>
-                    <span className="font-bold text-rose-400 font-heading">
+                    <span className="font-extrabold text-[#A83232] font-heading text-sm">
                       +{formatCurrency(calculation.emergencySurcharge)}
                     </span>
                   </div>
                 )}
               </div>
 
-              {/* Total Price Display */}
-              <div className="bg-[#0B0F17] p-5 rounded-2xl border border-slate-800 text-center">
-                <span className="text-xs text-slate-400 font-semibold block mb-1">
+              {/* Total Price Display - Warm Blush Peach highlight matching hero */}
+              <div className="bg-[#FDF6F1] p-5 rounded-2xl border border-[#EED4C6] text-center shadow-2xs">
+                <span className="text-xs text-slate-600 font-semibold block mb-1">
                   {t.totalEstimate}
                 </span>
-                <div className="text-3xl sm:text-4xl font-heading font-black text-emerald-400 tracking-tight tabular-nums">
+                <div className="text-3xl sm:text-4xl font-heading font-black text-[#111827] tracking-tight tabular-nums">
                   {formatCurrency(calculation.total)}
                 </div>
-                <span className="text-[10px] text-slate-400 mt-1 block">
+                <span className="text-[10px] text-slate-500 mt-1 block">
                   *Perkiraan Biaya Transparan (Tanpa Biaya Terselubung)
                 </span>
               </div>
 
               {/* Medical Notice Box */}
-              <div className="p-3.5 bg-slate-900/90 rounded-xl border border-slate-800 text-slate-300 text-[11px] leading-relaxed flex items-start gap-2.5">
-                <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className="p-3.5 bg-[#FAF7F2] rounded-xl border border-[#E8E2D9] text-slate-600 text-[11px] leading-relaxed flex items-start gap-2.5">
+                <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-white block mb-0.5">{t.disclaimerTitle}</span>
+                  <span className="font-bold text-slate-900 block mb-0.5">{t.disclaimerTitle}</span>
                   <p>{t.disclaimerText}</p>
                 </div>
               </div>
@@ -485,7 +489,7 @@ export const PricingEstimator: React.FC<PricingEstimatorProps> = ({ currentLocal
               <button
                 type="button"
                 onClick={handleApplyToBooking}
-                className="w-full bg-emerald-500 hover:bg-emerald-400 active:scale-[0.98] text-[#111827] font-heading font-black text-sm sm:text-base py-4 px-6 rounded-full shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full bg-[#111827] hover:bg-black active:scale-[0.98] text-white font-heading font-bold text-sm sm:text-base py-4 px-6 rounded-full shadow-md shadow-brand-950/20 hover:shadow-lg transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>{t.ctaLockEstimate}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

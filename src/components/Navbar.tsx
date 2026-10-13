@@ -21,22 +21,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#eed4c6] bg-[#F9E1D4] backdrop-blur-md transition-all shadow-2xs">
       {/* Top Banner: Status Dokter Jaga & Lokasi */}
-      <div className="bg-[#111827] text-slate-200 px-3.5 sm:px-6 lg:px-8 py-1 text-[11px] font-medium border-b border-black">
+      <div className="bg-[#D8E1EA] text-[#1E3A5F] px-3.5 sm:px-6 lg:px-8 py-1.5 text-[11px] font-medium border-b border-[#CCD8E2]">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
             </span>
-            <span className="text-emerald-300 font-semibold">{t.doctorOnDuty}</span>
-            <span className="text-slate-500 hidden sm:inline">·</span>
-            <span className="text-slate-300 hidden sm:inline">Jl. Senopati Raya No. 88, Jaksel</span>
+            <span className="text-emerald-800 font-bold">{t.doctorOnDuty}</span>
+            <span className="text-slate-400 hidden sm:inline">·</span>
+            <span className="text-slate-600 hidden sm:inline">Jl. Senopati Raya No. 88, Jaksel</span>
           </div>
 
           <div className="flex items-center">
             <a
               href="tel:+622155550199"
-              className="flex items-center gap-1.5 text-urgent-400 hover:text-urgent-300 font-bold transition-colors"
+              className="flex items-center gap-1.5 text-[#A83232] hover:text-[#8F2828] font-bold transition-colors"
             >
               <PhoneCall className="w-3 h-3" />
               <span className="sm:hidden">{currentLocale === 'id' ? 'IGD 24 Jam' : '24/7 ER'}</span>
@@ -221,13 +221,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             <a
               href="#booking"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl shadow-sm transition-all"
+              className="w-full text-center bg-[#111827] hover:bg-black text-white font-bold py-3 rounded-full shadow-sm transition-all"
             >
               {t.booking}
             </a>
             <a
               href="tel:+622155550199"
-              className="w-full text-center bg-[#A83232] hover:bg-[#8F2828] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center bg-[#A83232] hover:bg-[#8F2828] text-white font-bold py-3 rounded-full flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <PhoneCall className="w-4 h-4" />
               <span>{currentLocale === 'id' ? 'Hubungi Dokter IGD (24 Jam)' : 'Call 24/7 Emergency Vet'}</span>

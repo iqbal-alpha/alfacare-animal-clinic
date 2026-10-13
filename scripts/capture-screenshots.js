@@ -92,6 +92,15 @@ async function capture() {
     await locationEl.screenshot({ path: path.join(outputDir, '07-clinic-location.png') });
   }
 
+  // 8. Footer Section
+  console.log('Capturing Footer Section...');
+  const footerEl = await page.$('footer');
+  if (footerEl) {
+    await footerEl.scrollIntoView();
+    await new Promise((r) => setTimeout(r, 600));
+    await footerEl.screenshot({ path: path.join(outputDir, '08-footer.png') });
+  }
+
   console.log('Screenshots successfully re-captured with pristine layout!');
   await browser.close();
 }
