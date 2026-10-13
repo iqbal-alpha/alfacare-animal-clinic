@@ -17,39 +17,63 @@
 
 ## 🌟 Overview
 
-**AlfaCare Animal Clinic** is a production-grade veterinary clinical platform engineered to bridge medical precision with high-conversion client communication. Designed specifically for the veterinary ecosystem in South Jakarta, it features transparent pricing estimation, multi-step triage reservations, live database persistence, and automated WhatsApp triage routing.
+**AlfaCare Animal Clinic** is a production-grade veterinary clinical platform engineered to bridge medical precision with high-conversion, warm editorial client communication. Designed specifically for the veterinary ecosystem in South Jakarta, it features transparent pricing estimation, multi-step triage reservations, live database persistence, automated WhatsApp triage routing, and a warm, approachable brand aesthetic (Warm Blush Peach, Powdery Ice Blue, and Midnight Ink).
 
 ---
 
 ## 📸 Visual Showcase & Interface Tour
 
 ### 1. 🏥 Hero Showcase & Emergency Command Center
-Modern asymmetric hero layout featuring live doctor-on-duty telemetry, official SIPDH accreditations, and dual conversion action pathways.
+Warm editorial hero layout featuring custom dual-pet shelf framing, live doctor-on-duty telemetry, official SIPDH accreditations, and dual conversion action pathways.
 ![AlfaCare Hero Showcase](./docs/screenshots/01-hero-showcase.png)
 
+<div align="center">
+  <img src="./docs/screenshots/01-hero-mobile.png" alt="AlfaCare Mobile Experience" width="32%" />
+  &nbsp;&nbsp;
+  <img src="./docs/screenshots/01-hero-english.png" alt="AlfaCare Bilingual English Mode" width="64%" />
+</div>
+
 ---
 
-### 2. 🧮 Interactive Service & Pricing Estimator
-Transparent tariff calculator calibrated for Jakarta benchmark rates, supporting dynamic species and weight multiplier logic.
-![Interactive Pricing Estimator](./docs/screenshots/02-pricing-estimator.png)
+### 2. 🩺 Comprehensive Veterinary Services Catalog
+Full clinical medical service suite with ISO sterile surgery rooms, 24-hour isolation wards, digital X-rays, and Doppler ultrasound diagnostics.
+![Clinical Services Showcase](./docs/screenshots/02-services-showcase.png)
 
 ---
 
-### 3. 📋 4-Step Clinical Booking Funnel
+### 3. 🧮 Interactive Service & Pricing Estimator
+Transparent tariff calculator calibrated for Jakarta benchmark rates, supporting dynamic species and weight multiplier logic with instant cost breakdown.
+![Interactive Pricing Estimator](./docs/screenshots/03-pricing-estimator.png)
+
+---
+
+### 4. 📋 4-Step Clinical Booking Funnel
 Streamlined multi-step patient registration with inline validation, triage urgency flags, doctor selection, and PDP data consent.
-![Multi-Step Booking Funnel](./docs/screenshots/03-booking-funnel.png)
+![Multi-Step Booking Funnel](./docs/screenshots/04-booking-funnel.png)
 
 ---
 
-### 4. 🔬 Verified Clinical Case Studies
+### 5. 🔬 Verified Clinical Case Studies
 Social proof gallery powered by Supabase PostgreSQL, showcasing Before & After recovery sliders and veterinary specialist notes.
-![Clinical Case Studies](./docs/screenshots/04-clinical-case-studies.png)
+![Clinical Case Studies](./docs/screenshots/05-clinical-case-studies.png)
 
 ---
 
-### 5. 🚨 24/7 Emergency Triage & First-Aid Protocols
+### 6. 🚨 24/7 Emergency Triage & First-Aid Protocols
 Step-by-step emergency stabilization guide with immediate IGD call bridges and Jakarta clinic location map.
-![Emergency Triage Guide](./docs/screenshots/05-emergency-triage-guide.png)
+![Emergency Triage Guide](./docs/screenshots/06-emergency-triage-guide.png)
+
+---
+
+### 7. 📍 Modern Jakarta Clinic Facility & Directions
+Facility overview with dedicated dog & cat waiting rooms, drop-off parking area, and direct Google Maps GPS navigation.
+![Clinic Location & Facilities](./docs/screenshots/07-clinic-location.png)
+
+---
+
+### 8. 🛡️ Harmonized Clinical Footer & Accreditations
+Warm blush footer featuring operational hours, clinical service tags, emergency contacts, and Indonesian PDP Law compliance badge.
+![AlfaCare Clinical Footer](./docs/screenshots/08-footer.png)
 
 ---
 
@@ -101,7 +125,7 @@ Step-by-step emergency stabilization guide with immediate IGD call bridges and J
 - **Framework:** [Next.js 15](https://nextjs.org/) (App Router, Server Components & Route Handlers)
 - **Frontend Library:** [React 19](https://react.dev/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with clinical brand tokens (Deep Navy, Emerald Trust, Urgent Coral)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with custom warm editorial palette (Warm Blush Peach `#FDF6F1`, Powdery Ice Blue `#D8E1EA`, Deep Emerald, and Midnight Ink `#111827`)
 - **Icons:** [Lucide React](https://lucide.dev/)
 - **Database & Storage:** [Supabase](https://supabase.com/) (PostgreSQL 15+, Row Level Security)
 - **Email Dispatch:** [Resend](https://resend.com/) (HTML transactional booking vouchers)
