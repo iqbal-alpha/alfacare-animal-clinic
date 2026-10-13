@@ -29,10 +29,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 lg:pt-14 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-end">
           
-          {/* Left Column: Big Editorial Typography & Actions (7 Cols) */}
-          <div className="lg:col-span-7 space-y-6 text-left pb-8 lg:pb-12">
+          {/* Left Column: Big Editorial Typography & Actions (6 Cols) */}
+          <div className="lg:col-span-6 space-y-6 text-left pb-8 lg:pb-12">
             {/* Signature 3-Line Headline matching reference */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-heading font-black text-[#111827] tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl lg:text-[70px] font-heading font-black text-[#111827] tracking-tight leading-[1.08]">
               <span className="block">{isId ? 'Kami rawat' : 'We take'}</span>
               <span className="inline-flex items-center align-middle gap-3 my-1">
                 {/* Oval Pill with Puppy Cutout */}
@@ -60,9 +60,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
             <div className="flex flex-wrap items-center gap-5 sm:gap-7 pt-2">
               <a
                 href="#booking"
-                className="inline-flex items-center justify-center bg-[#111827] hover:bg-black active:scale-[0.98] text-white font-heading font-bold text-sm sm:text-base px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-md shadow-brand-950/20 transition-all whitespace-nowrap"
+                className="inline-flex items-center justify-center bg-[#111827] hover:bg-black active:scale-[0.98] text-white font-heading font-bold text-sm sm:text-base px-8 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-md shadow-brand-950/20 transition-all whitespace-nowrap shrink-0"
               >
-                <span>{isId ? 'Jadwalkan Janji' : 'Book A Meet'}</span>
+                <span>{isId ? 'Jadwalkan Janji' : 'Book Appointment'}</span>
               </a>
 
               <a
@@ -75,10 +75,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
             </div>
           </div>
 
-          {/* Right Column: Floating 24h Card & Peeking Pets (5 Cols) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-end">
-            {/* Floating 24h Box in Top Right */}
-            <div className="absolute -top-4 sm:top-0 right-2 sm:right-6 lg:right-2 z-20 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[130px] border border-slate-800 transition-transform hover:-translate-y-1">
+          {/* Right Column: Floating 24h Card & Peeking Pets (6 Cols) */}
+          <div className="lg:col-span-6 relative flex flex-col items-center lg:items-end justify-end">
+            {/* Floating 24h Box in Top Right - Positioned gracefully above cat */}
+            <div className="absolute -top-10 sm:-top-14 lg:-top-12 right-2 sm:right-4 lg:right-2 z-20 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[125px] border border-slate-800 transition-transform hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl font-heading font-black tracking-tight text-white block">
                 24h
               </span>
@@ -88,9 +88,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
             </div>
 
             {/* Peeking Pets Image (Dog & Cat resting paws directly on shelf line) */}
-            <div className="relative w-full max-w-[480px] lg:max-w-[500px]">
+            <div className="relative w-full max-w-[580px] lg:max-w-[620px] xl:max-w-[660px]">
               <img
-                src="/hero/pets-paws-ledge.png"
+                src="/hero/pets-paws-tight.png"
                 alt="Happy Corgi and Orange Cat peeking over the shelf"
                 className="w-full h-auto object-contain block align-bottom -mb-px"
                 loading="eager"

@@ -16,7 +16,7 @@ export const FloatingEmergencyBar: React.FC<FloatingEmergencyBarProps> = ({ curr
       {/* 1-Tap Emergency Call */}
       <a
         href="tel:+622155550199"
-        className="flex-1 bg-urgent-600 active:bg-urgent-700 text-white font-bold text-xs py-3 px-3 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-colors"
+        className="flex-1 bg-[#A83232] active:bg-[#8F2828] text-white font-bold text-xs py-3 px-3 rounded-xl shadow-md flex items-center justify-center gap-1.5 transition-colors"
       >
         <PhoneCall className="w-4 h-4 animate-pulse" />
         <span>{isId ? 'IGD Darurat 24 Jam' : '24/7 ER Hotline'}</span>

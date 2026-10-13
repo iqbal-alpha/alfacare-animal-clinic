@@ -50,11 +50,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
 
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-        {/* Brand Logo */}
+        {/* Brand Logo - Standalone Paw & Pulse without dark box */}
         <a href="#" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-800 to-brand-600 flex items-center justify-center text-white shadow-md shadow-brand-900/20 group-hover:scale-105 transition-transform">
-            <HeartPulse className="w-6 h-6 text-emerald-400" />
-          </div>
+          <img
+            src="/icon.svg"
+            alt="AlfaCare Animal Clinic Logo"
+            className="w-9 h-9 sm:w-10 sm:h-10 group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
               <span className="font-heading font-black text-xl text-brand-900 tracking-tight">AlfaCare</span>
@@ -114,22 +116,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             </button>
           </div>
 
-          {/* Book Appointment CTA Button */}
+          {/* Book Appointment CTA Button - Ample padding so text never overflows */}
           <a
             href="#booking"
-            className="bg-[#111827] hover:bg-black text-white text-xs xl:text-sm font-semibold px-4.5 py-2.5 rounded-full shadow-sm hover:shadow transition-all flex items-center gap-1.5 whitespace-nowrap"
+            className="bg-[#111827] hover:bg-black text-white text-xs xl:text-sm font-semibold px-6 xl:px-7 py-2.5 rounded-full shadow-xs hover:shadow transition-all flex items-center justify-center whitespace-nowrap shrink-0"
           >
             <span>{t.booking}</span>
           </a>
 
-          {/* Emergency Hotline Button */}
+          {/* Emergency Hotline Button - Refined, elegant muted warm crimson (not overly bright/neon) */}
           <a
             href="https://wa.me/6281188997700?text=Halo%20Dokter%20Darurat%20AlfaCare%20Jakarta,%20saya%20membutuhkan%20bantuan%20segera%20untuk%20hewan%20saya"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-urgent-600 hover:bg-urgent-700 text-white text-xs xl:text-sm font-bold px-3 py-2.5 xl:px-3.5 xl:py-2.5 rounded-xl shadow-md shadow-urgent-600/20 emergency-glow transition-all flex items-center gap-1.5 whitespace-nowrap"
+            className="bg-[#A83232] hover:bg-[#8F2828] text-white text-xs xl:text-sm font-semibold px-4 py-2.5 rounded-full shadow-xs transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0"
           >
-            <PhoneCall className="w-3.5 h-3.5 xl:w-4 xl:h-4 animate-pulse" />
+            <PhoneCall className="w-3.5 h-3.5 xl:w-4 xl:h-4 text-rose-100" />
             <span>{currentLocale === 'id' ? 'Hotline Darurat' : '24/7 Hotline'}</span>
           </a>
         </div>
@@ -167,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             href="https://wa.me/6281188997700?text=Halo%20Dokter%20Darurat%20AlfaCare%20Jakarta,%20saya%20membutuhkan%20bantuan%20segera%20untuk%20hewan%20saya"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex md:inline-flex items-center gap-1.5 bg-urgent-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm"
+            className="hidden sm:inline-flex md:inline-flex items-center gap-1.5 bg-[#A83232] hover:bg-[#8F2828] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-sm"
           >
             <PhoneCall className="w-3.5 h-3.5" />
             <span>{currentLocale === 'id' ? 'Hotline' : '24/7 Hotline'}</span>
@@ -225,7 +227,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLocale, onLocaleChange })
             </a>
             <a
               href="tel:+622155550199"
-              className="w-full text-center bg-urgent-600 hover:bg-urgent-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full text-center bg-[#A83232] hover:bg-[#8F2828] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <PhoneCall className="w-4 h-4" />
               <span>{currentLocale === 'id' ? 'Hubungi Dokter IGD (24 Jam)' : 'Call 24/7 Emergency Vet'}</span>
