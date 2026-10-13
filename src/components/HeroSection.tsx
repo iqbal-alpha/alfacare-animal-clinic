@@ -78,7 +78,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
           {/* Right Column: Floating 24h Card & Peeking Pets (6 Cols) */}
           <div className="lg:col-span-6 relative flex flex-col items-center lg:items-end justify-end">
             {/* Floating 24h Box in Top Right - Positioned gracefully above cat */}
-            <div className="absolute -top-10 sm:-top-14 lg:-top-12 right-2 sm:right-4 lg:right-2 z-20 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[125px] border border-slate-800 transition-transform hover:-translate-y-1">
+            <div className="absolute top-2 sm:top-4 right-2 sm:right-6 lg:right-2 z-40 bg-[#111827] text-white rounded-3xl p-4 sm:p-5 shadow-2xl text-center flex flex-col items-center justify-center min-w-[110px] sm:min-w-[125px] border border-slate-800 transition-transform hover:-translate-y-1">
               <span className="text-3xl sm:text-4xl font-heading font-black tracking-tight text-white block">
                 24h
               </span>
@@ -87,12 +87,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ currentLocale }) => {
               </span>
             </div>
 
-            {/* Peeking Pets Image (Dog & Cat resting paws directly on shelf line) */}
-            <div className="relative w-full max-w-[580px] lg:max-w-[620px] xl:max-w-[660px]">
+            {/* Peeking Giant Pets - Big expressive faces filling the right hero, paws resting over the shelf line */}
+            <div className="relative z-30 w-full max-w-[560px] sm:max-w-[640px] lg:max-w-[680px] xl:max-w-[720px] -mb-[18%] sm:-mb-[20%] lg:-mb-[21%] pointer-events-none">
               <img
-                src="/hero/pets-paws-tight.png"
-                alt="Happy Corgi and Orange Cat peeking over the shelf"
-                className="w-full h-auto object-contain block align-bottom -mb-px"
+                src="/hero/pets-giant-cutout.png"
+                alt="Happy Corgi and Orange Cat filling the hero section"
+                className="w-full h-auto object-contain block drop-shadow-sm"
                 loading="eager"
               />
             </div>
